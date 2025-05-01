@@ -1,0 +1,309 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b17af52510012242acceaa800dbf20f, type: 3}
+  m_Name: Pathmaker Ruby
+  m_EditorClassIdentifier: 
+  moves:
+  - name: Jab 1
+    animationName: Jab 1
+    input: G5A
+    grounded: 1
+    airborne: 0
+    nextMoves:
+    - Jab 2
+    - Forward Tilt
+    - Up Tilt
+    hitboxes:
+    - damage: 3
+      hitstun: 0.25
+      hitstop: 0.025
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 0
+      unscaledKnockback: 2.5
+      angle: 0
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
+      type: 0
+      hitEffect: {fileID: 0}
+  - name: Jab 2
+    animationName: Jab 2
+    input: G5A
+    grounded: 1
+    airborne: 0
+    nextMoves:
+    - Forward Tilt
+    - Up Tilt
+    - Down Tilt
+    hitboxes:
+    - damage: 3
+      hitstun: 0.25
+      hitstop: 0.025
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 0
+      unscaledKnockback: 2.5
+      angle: 0
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
+      type: 0
+      hitEffect: {fileID: 0}
+  - name: Forward Tilt
+    animationName: Forward Tilt
+    input: G6A
+    grounded: 1
+    airborne: 0
+    nextMoves: []
+    hitboxes:
+    - damage: 6
+      hitstun: 0.3
+      hitstop: 0.1
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 20
+      unscaledKnockback: 5
+      angle: 30
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
+      type: 2
+      hitEffect: {fileID: 0}
+  - name: Up Tilt
+    animationName: Up Tilt
+    input: G8A
+    grounded: 1
+    airborne: 1
+    nextMoves: []
+    hitboxes:
+    - damage: 7
+      hitstun: 0.25
+      hitstop: 0.1
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 0
+      unscaledKnockback: 12.5
+      angle: 90
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
+      type: 1
+      hitEffect: {fileID: 0}
+  - name: Down Tilt
+    animationName: Down Tilt
+    input: G2A
+    grounded: 1
+    airborne: 0
+    nextMoves:
+    - Down Tilt
+    - Jab 1
+    - Forward Tilt
+    hitboxes:
+    - damage: 4
+      hitstun: 0.25
+      hitstop: 0.025
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 5
+      unscaledKnockback: 5
+      angle: 25
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
+      type: 1
+      hitEffect: {fileID: 0}
+  - name: Neutral Air
+    animationName: Neutral Air
+    input: A5A
+    grounded: 0
+    airborne: 1
+    nextMoves: []
+    hitboxes:
+    - damage: 2
+      hitstun: 0.2
+      hitstop: 0.05
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 2.5
+      unscaledKnockback: 10
+      angle: 45
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
+      type: 0
+      hitEffect: {fileID: 0}
+  - name: Forward Air
+    animationName: Forward Air
+    input: A6A
+    grounded: 0
+    airborne: 1
+    nextMoves: []
+    hitboxes:
+    - damage: 7
+      hitstun: 0.25
+      hitstop: 0.1
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 15
+      unscaledKnockback: 10
+      angle: 30
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
+      type: 0
+      hitEffect: {fileID: 0}
+  - name: Back Tilt
+    animationName: Forward Tilt
+    input: G4A
+    grounded: 1
+    airborne: 0
+    nextMoves: []
+    hitboxes:
+    - damage: 6
+      hitstun: 0.3
+      hitstop: 0.1
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 20
+      unscaledKnockback: 5
+      angle: 30
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
+      type: 2
+      hitEffect: {fileID: 0}
+  - name: Up Air
+    animationName: Up Air
+    input: A8A
+    grounded: 0
+    airborne: 1
+    nextMoves:
+    - Neutral Air
+    - Forward Air
+    - Back Air
+    hitboxes:
+    - damage: 7
+      hitstun: 0.25
+      hitstop: 0.1
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 15
+      unscaledKnockback: 0
+      angle: 120
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
+      type: 0
+      hitEffect: {fileID: 0}
+  - name: Back Air
+    animationName: Back Air
+    input: A4A
+    grounded: 0
+    airborne: 1
+    nextMoves: []
+    hitboxes:
+    - damage: 8
+      hitstun: 0.3
+      hitstop: 0.1
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 25
+      unscaledKnockback: 7.5
+      angle: 160
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
+      type: 2
+      hitEffect: {fileID: 0}
+  - name: Down Air
+    animationName: Down Air
+    input: A2A
+    grounded: 0
+    airborne: 1
+    nextMoves: []
+    hitboxes:
+    - damage: 6
+      hitstun: 0.5
+      hitstop: 0.25
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 25
+      unscaledKnockback: 10
+      angle: -75
+      guaranteeLaunch: 1
+      forwardDependentAngle: 0
+      type: 2
+      hitEffect: {fileID: 738131455022530534, guid: 5d4dbb55a887ac648b16b38c81eb6ec8, type: 3}
+  - name: Neutral Special
+    animationName: Neutral Special
+    input: 5B
+    grounded: 1
+    airborne: 1
+    nextMoves:
+    - Neutral Special
+    hitboxes:
+    - damage: 2.5
+      hitstun: 0
+      hitstop: 0
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 2.5
+      unscaledKnockback: 0
+      angle: 90
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
+      type: 0
+      hitEffect: {fileID: 0}
+  - name: Forward Special
+    animationName: Forward Special
+    input: 6B
+    grounded: 1
+    airborne: 1
+    nextMoves: []
+    hitboxes:
+    - damage: 2
+      hitstun: 0.1
+      hitstop: 0.01
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 0
+      unscaledKnockback: 10
+      angle: 15
+      guaranteeLaunch: 1
+      forwardDependentAngle: 0
+      type: 0
+      hitEffect: {fileID: 0}
+  - name: Up Special
+    animationName: Up Special
+    input: 8B
+    grounded: 1
+    airborne: 1
+    nextMoves: []
+    hitboxes:
+    - damage: 15
+      hitstun: 1
+      hitstop: 0.1
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 7.5
+      unscaledKnockback: 15
+      angle: 75
+      guaranteeLaunch: 1
+      forwardDependentAngle: 0
+      type: 1
+      hitEffect: {fileID: 738131455022530534, guid: 5d4dbb55a887ac648b16b38c81eb6ec8, type: 3}
+  - name: Down Special
+    animationName: Down Special
+    input: 2B
+    grounded: 1
+    airborne: 1
+    nextMoves: []
+    hitboxes:
+    - damage: 7.5
+      hitstun: 0.5
+      hitstop: 0.1
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 7.5
+      unscaledKnockback: 15
+      angle: 0
+      guaranteeLaunch: 1
+      forwardDependentAngle: 1
+      type: 0
+      hitEffect: {fileID: 738131455022530534, guid: 5d4dbb55a887ac648b16b38c81eb6ec8, type: 3}
+    - damage: 12.5
+      hitstun: 1
+      hitstop: 0.25
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 10
+      unscaledKnockback: 15
+      angle: -75
+      guaranteeLaunch: 1
+      forwardDependentAngle: 0
+      type: 2
+      hitEffect: {fileID: 3269442930348277615, guid: d25cdc23de90ec0499c44bf3b505fff5, type: 3}

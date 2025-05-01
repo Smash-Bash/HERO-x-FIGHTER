@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7923044672476188189
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1689144673298125794, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a4df5507d7cb89f4e9403ebfccdd5fa0, type: 2}
+    - target: {fileID: 1797987633360706778, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a4df5507d7cb89f4e9403ebfccdd5fa0, type: 2}
+    - target: {fileID: 4026253647075052723, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a4df5507d7cb89f4e9403ebfccdd5fa0, type: 2}
+    - target: {fileID: 5523152204448403612, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: hairMat
+      value: 
+      objectReference: {fileID: 2100000, guid: fc0c50d92efd2824698eb9a679fbb61f, type: 2}
+    - target: {fileID: 5523152204448403612, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: outfitName
+      value: Flow State Omen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523152204448403612, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: description
+      value: Ruby has begun to show a legendary state of mind, said to allow one
+        to dodge attacks without thinking.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523152204448403612, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: ponytailMat
+      value: 
+      objectReference: {fileID: 2100000, guid: a4df5507d7cb89f4e9403ebfccdd5fa0, type: 2}
+    - target: {fileID: 5523152204448403612, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: superHairMat
+      value: 
+      objectReference: {fileID: 2100000, guid: ea749ef1e16b6c243a4246c3074766b6, type: 2}
+    - target: {fileID: 5523152204448403612, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: staminaRegenMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523152204448403612, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: staminaRegenCooldownMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380685561816380460, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853915491580105231, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a4df5507d7cb89f4e9403ebfccdd5fa0, type: 2}
+    - target: {fileID: 7031767179177045026, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_Range
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481179098002141728, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481179098002141728, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481179098002141728, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481179098002141728, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481179098002141728, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481179098002141728, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481179098002141728, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481179098002141728, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481179098002141728, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481179098002141728, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481179098002141728, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825475408325699738, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_Name
+      value: Ruby (Flow State Omen)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299096294475369263, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a4df5507d7cb89f4e9403ebfccdd5fa0, type: 2}
+    - target: {fileID: 8410903317935574671, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581782790661047869, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fc0c50d92efd2824698eb9a679fbb61f, type: 2}
+    - target: {fileID: 9102520311942136574, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca82027206b165d4084a2d2b352b17d5, type: 3}

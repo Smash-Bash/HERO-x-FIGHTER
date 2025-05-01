@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1d99128984e6afe41a489e76faa04402
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - platformHUDDisplays: {instanceID: 0}
+  - platformHUDPrefab: {fileID: 8492329680725492888, guid: d3d0037f365aa6d4c94caeeeea87841a, type: 3}
+  - blastEffectPrefab: {fileID: 7652995474905384871, guid: b34fe04acd040e745a2bab034545f9be, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
