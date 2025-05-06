@@ -7,7 +7,7 @@ public class AnimationEvents : MonoBehaviour
 {
     public UnityEvent[] events;
 
-    public void Invoke(int id)
+    public void Trigger(int id)
     {
         events[id].Invoke();
     }

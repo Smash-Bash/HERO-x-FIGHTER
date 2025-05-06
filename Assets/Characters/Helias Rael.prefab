@@ -4812,15 +4812,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 2
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: -8347112893839027896, guid: fb3c51c4f653ec54eb3c1ffd37c73305, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -9681,15 +9679,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 2
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 5822811972676879131, guid: fb3c51c4f653ec54eb3c1ffd37c73305, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -14511,15 +14507,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 2
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 6701942193873503675, guid: fb3c51c4f653ec54eb3c1ffd37c73305, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -19341,15 +19335,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 2
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: -8839368762345780380, guid: fb3c51c4f653ec54eb3c1ffd37c73305, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -24171,15 +24163,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 2
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 2346716986137308042, guid: fb3c51c4f653ec54eb3c1ffd37c73305, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -29001,15 +28991,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 2
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: -384404316323646480, guid: fb3c51c4f653ec54eb3c1ffd37c73305, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -33831,15 +33819,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 2
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 4888830922091850411, guid: fb3c51c4f653ec54eb3c1ffd37c73305, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -38661,15 +38647,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 2
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 4582056872773645239, guid: fb3c51c4f653ec54eb3c1ffd37c73305, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -38798,12 +38782,20 @@ MonoBehaviour:
   - {fileID: 4359674062148545524}
   - {fileID: 2811969033575931582}
   - {fileID: 8329000032384209436}
+  - {fileID: 2034141346993689182}
   projectileSpawners:
   - {fileID: 3854638418036786663}
   - {fileID: 6614343885791931640}
+  - {fileID: 8887483312216446220}
   hitEffect: {fileID: 738131455022530534, guid: 5d4dbb55a887ac648b16b38c81eb6ec8, type: 3}
   hitPlayer: 0
   hitHitbox: 0
+  hasFloat: 0
+  floating: 0
+  floatAmount: 0
+  solarJudgementCharge: 0
+  leftHand: {fileID: 2862679396139927113}
+  lightningPrefab: {fileID: 4337200899417023639, guid: a724cb294206eec4a84cdad53f9f5511, type: 3}
 --- !u!114 &4116316492388305199 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4441606567463861040, guid: 1219a0ea100be824f9f1c0468af1e273, type: 3}
@@ -38828,6 +38820,62 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6878811898471616705}
     m_Modifications:
+    - target: {fileID: 1344112493769151210, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: -0.29999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 1344112493769151210, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: -0.29999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 1344112493769151210, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: m_Positions.Array.data[2].y
+      value: -0.29999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083445928747333722, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: -0.29999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083445928747333722, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: -0.8000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083445928747333722, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: m_Positions.Array.data[2].y
+      value: -1.3000008
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101121749234061296, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: events.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101121749234061296, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101121749234061296, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101121749234061296, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8928604390619660199}
+    - target: {fileID: 2101121749234061296, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101121749234061296, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FireLightning
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101121749234061296, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Helias, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101121749234061296, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3869803169084195926, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
       propertyPath: m_Name
       value: Helias (Dark Mana)
@@ -38872,6 +38920,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5877663928309466106, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: -0.29999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877663928309466106, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: 0.20000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877663928309466106, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+      propertyPath: m_Positions.Array.data[2].y
+      value: 0.70000005
+      objectReference: {fileID: 0}
     - target: {fileID: 6287996956924059298, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
       propertyPath: player
       value: 
@@ -38886,6 +38946,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4539520492687695596, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
   m_PrefabInstance: {fileID: 4562566670285417294}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2034141346993689182 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2552352354709567760, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+  m_PrefabInstance: {fileID: 4562566670285417294}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f01de1710b34149be4d0bcfd0ff5c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2811969033575931582 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1753976985750025712, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
@@ -38897,6 +38968,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f01de1710b34149be4d0bcfd0ff5c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2862679396139927113 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1795592136719478023, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+  m_PrefabInstance: {fileID: 4562566670285417294}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3854638418036786663 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 733826160958254761, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
@@ -38950,5 +39026,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0f01de1710b34149be4d0bcfd0ff5c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8887483312216446220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4902116287661588034, guid: 647b71f7d1b76dd479af02fc29d85fb3, type: 3}
+  m_PrefabInstance: {fileID: 4562566670285417294}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b96186a50d5b7438ec28a98dc0291c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

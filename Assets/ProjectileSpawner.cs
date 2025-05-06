@@ -6,6 +6,7 @@ public class ProjectileSpawner : MonoBehaviour
 {
     public Projectile projectile;
     public Vector2 velocity;
+    private bool spawnedThisFrame;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +20,21 @@ public class ProjectileSpawner : MonoBehaviour
         
     }
 
+    void LateUpdate()
+    {
+        spawnedThisFrame = false;
+    }
+
     public void Fire(PlayerScript player)
     {
-        Projectile newProjectile = GameObject.Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, 0));
-        newProjectile.owner = player;
-        newProjectile.velocity = new Vector2(velocity.x * player.direction, velocity.y);
+        if (!spawnedThisFrame)
+        {
+            Projectile newProjectile = GameObject.Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, 0));
+            newProjectile.transform.localScale = transform.localScale;
+            newProjectile.owner = player;
+            newProjectile.move = player.fighter.currentMove;
+            newProjectile.velocity = new Vector2(velocity.x * player.direction, velocity.y);
+        }
+        spawnedThisFrame = true;
     }
 }

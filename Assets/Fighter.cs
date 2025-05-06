@@ -395,6 +395,11 @@ public class Fighter : MonoBehaviour
     {
 
     }
+
+    public virtual void OnProjectileSpawn(int ID)
+    {
+
+    }
 }
 
 [System.Serializable]

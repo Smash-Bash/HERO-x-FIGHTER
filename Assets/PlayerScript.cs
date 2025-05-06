@@ -221,7 +221,7 @@ public class PlayerScript : Entity
                 }
             }
 
-            if (!grounded)
+            if (!grounded && hitstun <= 0 && hitstop <= 0 && unactionable <= 0)
             {
                 GetVelocityInput();
             }

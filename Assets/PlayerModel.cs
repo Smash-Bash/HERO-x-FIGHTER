@@ -69,6 +69,8 @@ public class PlayerModel : MonoBehaviour
         animator.SetBool("Grounded", player.grounded);
         animator.SetBool("Blocking", player.blockStop);
         animator.SetBool("Hitstun", player.hitstun > 0 && !player.free);
+        animator.SetBool("AttackDown", player.input.GetAttack());
+        animator.SetBool("SpecialDown", player.input.GetSpecial());
 
         animator.speed = player.hitstop <= 0 ? 1 : 0;
     }
@@ -127,5 +129,6 @@ public class PlayerModel : MonoBehaviour
     public void SpawnProjectile(int ID)
     {
         player.fighter.projectileSpawners[ID].Fire(player);
+        player.fighter.OnProjectileSpawn(ID);
     }
 }

@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Hitbox : MonoBehaviour
+public class CustomHitbox : MonoBehaviour
 {
     public PlayerScript player;
     [Min(0)]
@@ -23,13 +23,13 @@ public class Hitbox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = transform.parent.parent.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        scale = (transform.lossyScale.x + transform.lossyScale.y + transform.lossyScale.z) / 3;
+        scale = 1;
     }
 
     public List<Entity> Attack(Entity owner)
@@ -53,14 +53,9 @@ public class Hitbox : MonoBehaviour
                 if (hit.GetComponent<Entity>() != null && hit.gameObject != owner.gameObject)
                 {
                     hitEntities.Add(hit.GetComponent<Entity>());
-                    currentlyHitThings.Add(hit.gameObject);
                 }
-                //currentlyHitThings.Add(hit.gameObject);
+                currentlyHitThings.Add(hit.gameObject);
             }
-        }
-        if (hitEntities.Count > 0)
-        {
-            onHit.Invoke();
         }
         return hitEntities;
     }
@@ -69,14 +64,14 @@ public class Hitbox : MonoBehaviour
     {
         if (isActiveAndEnabled)
         {
-            scale = (transform.lossyScale.x + transform.lossyScale.y + transform.lossyScale.z) / 3;
+            //Vector3 depthMultiplier = new Vector3(1, 1, 0);
             Vector3 depthMultiplier = Vector3.one;
             Color oldColor = Gizmos.color;
             Gizmos.color = new Color(1, 0, 0, 0.25f);
-            Gizmos.DrawWireSphere(Vector3.Scale(depthMultiplier, transform.position), radius * scale);
-            Gizmos.DrawWireSphere(Vector3.Scale(depthMultiplier, transform.position + (transform.forward * length)), radius * scale);
-            Gizmos.DrawSphere(Vector3.Scale(depthMultiplier, transform.position), radius * scale);
-            Gizmos.DrawSphere(Vector3.Scale(depthMultiplier, transform.position + (transform.forward * length)), radius * scale);
+            Gizmos.DrawWireSphere(Vector3.Scale(depthMultiplier, transform.position), radius);
+            Gizmos.DrawWireSphere(Vector3.Scale(depthMultiplier, transform.position + (transform.forward * length)), radius);
+            Gizmos.DrawSphere(Vector3.Scale(depthMultiplier, transform.position), radius);
+            Gizmos.DrawSphere(Vector3.Scale(depthMultiplier, transform.position + (transform.forward * length)), radius);
             Gizmos.color = oldColor;
 
             Gizmos.DrawLine(transform.position, transform.position + transform.forward);

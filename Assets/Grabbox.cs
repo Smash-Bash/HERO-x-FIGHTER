@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Hitbox : MonoBehaviour
+public class Grabbox : MonoBehaviour
 {
     public PlayerScript player;
     [Min(0)]
@@ -23,7 +23,7 @@ public class Hitbox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -72,7 +72,7 @@ public class Hitbox : MonoBehaviour
             scale = (transform.lossyScale.x + transform.lossyScale.y + transform.lossyScale.z) / 3;
             Vector3 depthMultiplier = Vector3.one;
             Color oldColor = Gizmos.color;
-            Gizmos.color = new Color(1, 0, 0, 0.25f);
+            Gizmos.color = new Color(1, 1, 0, 0.25f);
             Gizmos.DrawWireSphere(Vector3.Scale(depthMultiplier, transform.position), radius * scale);
             Gizmos.DrawWireSphere(Vector3.Scale(depthMultiplier, transform.position + (transform.forward * length)), radius * scale);
             Gizmos.DrawSphere(Vector3.Scale(depthMultiplier, transform.position), radius * scale);

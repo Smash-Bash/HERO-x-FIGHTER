@@ -6,6 +6,8 @@ public class BasicProjectile : Projectile
 {
     public bool shrinkOverLifetime;
     public bool explodeOnLifetimeEnd = true;
+    public bool explodeOnTerrainHit = true;
+    public Vector2 velocityOverLifetime;
 
     // Start is called before the first frame update
     public override void Start()
@@ -18,6 +20,7 @@ public class BasicProjectile : Projectile
     {
         base.Update();
 
+        velocity += velocityOverLifetime * Time.deltaTime;
         RaycastHit hit;
         Physics.Raycast(transform.position, new Vector3(velocity.x, velocity.y, 0), out hit, Time.deltaTime * 10, ~0, QueryTriggerInteraction.Ignore);
         if (hit.transform != null)
@@ -33,12 +36,15 @@ public class BasicProjectile : Projectile
                 {
                     if (hit.transform.GetComponentInParent<Entity>() != owner)
                     {
-                        Explode();
+                        //Explode();
                     }
                 }
                 else
                 {
-                    Explode();
+                    if (explodeOnTerrainHit)
+                    {
+                        Explode();
+                    }
                 }
             }
         }
@@ -57,7 +63,10 @@ public class BasicProjectile : Projectile
                 Destroy(this.gameObject);
             }
         }
-        transform.position += new Vector3(velocity.x, velocity.y, 0) * Time.deltaTime;
+        if (hitstop <= 0)
+        {
+            transform.position += new Vector3(velocity.x, velocity.y, 0) * Time.deltaTime;
+        }
     }
 
     public override void Explode()
