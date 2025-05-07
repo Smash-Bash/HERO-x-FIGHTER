@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b17af52510012242acceaa800dbf20f, type: 3}
-  m_Name: Helias Rael
+  m_Name: Ruby Kabashima
   m_EditorClassIdentifier: 
   moves:
   - name: Jab 1
@@ -25,7 +25,7 @@ MonoBehaviour:
     hitboxes:
     - damage: 3
       hitstun: 0.25
-      hitstop: 0.05
+      hitstop: 0.025
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 2.5
@@ -46,7 +46,7 @@ MonoBehaviour:
     hitboxes:
     - damage: 3
       hitstun: 0.25
-      hitstop: 0.05
+      hitstop: 0.025
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 2.5
@@ -68,7 +68,7 @@ MonoBehaviour:
       attackerHitstopMultiplier: 1
       scaledKnockback: 20
       unscaledKnockback: 5
-      angle: 45
+      angle: 30
       guaranteeLaunch: 0
       forwardDependentAngle: 0
       type: 2
@@ -77,19 +77,15 @@ MonoBehaviour:
     animationName: Up Tilt
     input: G8A
     grounded: 1
-    airborne: 0
-    nextMoves:
-    - Neutral Air
-    - Forward Air
-    - Back Air
-    - Forward Special
+    airborne: 1
+    nextMoves: []
     hitboxes:
-    - damage: 5
-      hitstun: 0.5
+    - damage: 7
+      hitstun: 0.25
       hitstop: 0.1
       attackerHitstopMultiplier: 1
-      scaledKnockback: 7.5
-      unscaledKnockback: 7.5
+      scaledKnockback: 0
+      unscaledKnockback: 12.5
       angle: 90
       guaranteeLaunch: 0
       forwardDependentAngle: 0
@@ -111,7 +107,7 @@ MonoBehaviour:
       attackerHitstopMultiplier: 1
       scaledKnockback: 5
       unscaledKnockback: 5
-      angle: 0
+      angle: 25
       guaranteeLaunch: 0
       forwardDependentAngle: 0
       type: 1
@@ -123,23 +119,12 @@ MonoBehaviour:
     airborne: 1
     nextMoves: []
     hitboxes:
-    - damage: 5
-      hitstun: 0.25
-      hitstop: 0.05
-      attackerHitstopMultiplier: 1
-      scaledKnockback: 5
-      unscaledKnockback: 10
-      angle: 30
-      guaranteeLaunch: 0
-      forwardDependentAngle: 0
-      type: 0
-      hitEffect: {fileID: 0}
     - damage: 2
-      hitstun: 0.1
+      hitstun: 0.2
       hitstop: 0.05
       attackerHitstopMultiplier: 1
       scaledKnockback: 2.5
-      unscaledKnockback: 5
+      unscaledKnockback: 10
       angle: 45
       guaranteeLaunch: 0
       forwardDependentAngle: 0
@@ -152,28 +137,17 @@ MonoBehaviour:
     airborne: 1
     nextMoves: []
     hitboxes:
-    - damage: 6
+    - damage: 7
       hitstun: 0.25
       hitstop: 0.1
       attackerHitstopMultiplier: 1
-      scaledKnockback: 20
+      scaledKnockback: 15
       unscaledKnockback: 10
       angle: 30
       guaranteeLaunch: 0
       forwardDependentAngle: 0
-      type: 2
+      type: 0
       hitEffect: {fileID: 0}
-    - damage: 8
-      hitstun: 0.25
-      hitstop: 0.1
-      attackerHitstopMultiplier: 1
-      scaledKnockback: 20
-      unscaledKnockback: 20
-      angle: -45
-      guaranteeLaunch: 0
-      forwardDependentAngle: 0
-      type: 2
-      hitEffect: {fileID: 3269442930348277615, guid: d25cdc23de90ec0499c44bf3b505fff5, type: 3}
   - name: Back Tilt
     animationName: Forward Tilt
     input: G4A
@@ -206,8 +180,8 @@ MonoBehaviour:
       hitstun: 0.25
       hitstop: 0.1
       attackerHitstopMultiplier: 1
-      scaledKnockback: 10
-      unscaledKnockback: 7.5
+      scaledKnockback: 15
+      unscaledKnockback: 0
       angle: 120
       guaranteeLaunch: 0
       forwardDependentAngle: 0
@@ -220,13 +194,13 @@ MonoBehaviour:
     airborne: 1
     nextMoves: []
     hitboxes:
-    - damage: 5
-      hitstun: 0.25
+    - damage: 8
+      hitstun: 0.3
       hitstop: 0.1
       attackerHitstopMultiplier: 1
-      scaledKnockback: 15
+      scaledKnockback: 25
       unscaledKnockback: 7.5
-      angle: 150
+      angle: 160
       guaranteeLaunch: 0
       forwardDependentAngle: 0
       type: 2
@@ -248,40 +222,22 @@ MonoBehaviour:
       guaranteeLaunch: 1
       forwardDependentAngle: 0
       type: 2
-      hitEffect: {fileID: 0}
+      hitEffect: {fileID: 738131455022530534, guid: 5d4dbb55a887ac648b16b38c81eb6ec8, type: 3}
   - name: Neutral Special
     animationName: Neutral Special
     input: 5B
     grounded: 1
     airborne: 1
     nextMoves:
-    - Consecutive Neutral Special
+    - Neutral Special
     hitboxes:
-    - damage: 3
-      hitstun: 0.25
-      hitstop: 0.05
+    - damage: 2.5
+      hitstun: 0
+      hitstop: 0
       attackerHitstopMultiplier: 1
-      scaledKnockback: 0
-      unscaledKnockback: 2.5
-      angle: 0
-      guaranteeLaunch: 0
-      forwardDependentAngle: 0
-      type: 0
-      hitEffect: {fileID: 0}
-  - name: Consecutive Neutral Special
-    animationName: Consecutive Neutral Special
-    input: 5B
-    grounded: 1
-    airborne: 1
-    nextMoves: []
-    hitboxes:
-    - damage: 3
-      hitstun: 0.25
-      hitstop: 0.05
-      attackerHitstopMultiplier: 1
-      scaledKnockback: 0
-      unscaledKnockback: 2.5
-      angle: 0
+      scaledKnockback: 2.5
+      unscaledKnockback: 0
+      angle: 90
       guaranteeLaunch: 0
       forwardDependentAngle: 0
       type: 0
@@ -299,8 +255,8 @@ MonoBehaviour:
       hitstop: 0.01
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
-      unscaledKnockback: 15
-      angle: 45
+      unscaledKnockback: 10
+      angle: 15
       guaranteeLaunch: 1
       forwardDependentAngle: 0
       type: 0
@@ -312,17 +268,17 @@ MonoBehaviour:
     airborne: 1
     nextMoves: []
     hitboxes:
-    - damage: 2.5
+    - damage: 15
       hitstun: 1
-      hitstop: 0.25
+      hitstop: 0.1
       attackerHitstopMultiplier: 1
       scaledKnockback: 7.5
-      unscaledKnockback: 10
+      unscaledKnockback: 15
       angle: 75
       guaranteeLaunch: 1
       forwardDependentAngle: 0
-      type: 3
-      hitEffect: {fileID: 0}
+      type: 1
+      hitEffect: {fileID: 738131455022530534, guid: 5d4dbb55a887ac648b16b38c81eb6ec8, type: 3}
   - name: Down Special
     animationName: Down Special
     input: 2B
@@ -330,50 +286,25 @@ MonoBehaviour:
     airborne: 1
     nextMoves: []
     hitboxes:
-    - damage: 15
-      hitstun: 1
-      hitstop: 0.25
+    - damage: 7.5
+      hitstun: 0.5
+      hitstop: 0.1
       attackerHitstopMultiplier: 1
-      scaledKnockback: 15
-      unscaledKnockback: 30
-      angle: 15
-      guaranteeLaunch: 1
-      forwardDependentAngle: 0
-      type: 3
-      hitEffect: {fileID: 3269442930348277615, guid: d25cdc23de90ec0499c44bf3b505fff5, type: 3}
-    - damage: 10
-      hitstun: 1
-      hitstop: 0.25
-      attackerHitstopMultiplier: 1
-      scaledKnockback: 15
-      unscaledKnockback: 20
-      angle: 30
-      guaranteeLaunch: 1
-      forwardDependentAngle: 0
-      type: 0
-      hitEffect: {fileID: 3269442930348277615, guid: d25cdc23de90ec0499c44bf3b505fff5, type: 3}
-  - name: Getup Special
-    animationName: Getup Special
-    input: 
-    grounded: 1
-    airborne: 1
-    nextMoves: []
-    hitboxes: []
-  - name: Getup Special Launch
-    animationName: Getup Special Launch
-    input: 
-    grounded: 1
-    airborne: 1
-    nextMoves: []
-    hitboxes:
-    - damage: 20
-      hitstun: 1
-      hitstop: 0.5
-      attackerHitstopMultiplier: 1
-      scaledKnockback: 25
-      unscaledKnockback: 25
+      scaledKnockback: 7.5
+      unscaledKnockback: 15
       angle: 0
       guaranteeLaunch: 1
       forwardDependentAngle: 1
+      type: 0
+      hitEffect: {fileID: 738131455022530534, guid: 5d4dbb55a887ac648b16b38c81eb6ec8, type: 3}
+    - damage: 12.5
+      hitstun: 1
+      hitstop: 0.25
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 10
+      unscaledKnockback: 15
+      angle: -75
+      guaranteeLaunch: 1
+      forwardDependentAngle: 0
       type: 2
       hitEffect: {fileID: 3269442930348277615, guid: d25cdc23de90ec0499c44bf3b505fff5, type: 3}

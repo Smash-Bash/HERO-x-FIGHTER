@@ -44,6 +44,11 @@ public class Projectile : MonoBehaviour
 
     public virtual void Explode()
     {
+        if (spawnOnHit != null)
+        {
+            GameObject newObject = GameObject.Instantiate(spawnOnHit, transform.position, Quaternion.identity);
+            newObject.transform.localScale = transform.localScale;
+        }
         Destroy(gameObject);
     }
 

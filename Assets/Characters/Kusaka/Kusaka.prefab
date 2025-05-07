@@ -5299,6 +5299,7 @@ MonoBehaviour:
   angrier: {fileID: 2100000, guid: 8558c22b7c08860409adca66d447e69d, type: 2}
   ohCrap: {fileID: 2100000, guid: 479f10ac165506b41b152a83cb35d600, type: 2}
   damaged: {fileID: 2100000, guid: 85bfecb540ddae74bbbffe92f060bece, type: 2}
+  hurt: {fileID: 2100000, guid: 85bfecb540ddae74bbbffe92f060bece, type: 2}
   wincing: {fileID: 2100000, guid: 6f0583b1aadc56f42a0824dfebcd5570, type: 2}
 --- !u!95 &484332248186959701
 Animator:

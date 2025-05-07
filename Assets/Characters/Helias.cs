@@ -64,6 +64,12 @@ public class Helias : Fighter
             
         }
         model.animator.SetFloat("SolarCharge", solarJudgementCharge);
+
+        if (model.animator.GetCurrentAnimatorStateInfo(0).IsName("Down Special") && model.allowFollowup && player.input.GetSpecial())
+        {
+            model.animator.Play("Down Special Cancel");
+            player.input.specialBuffer = 0;
+        }
     }
 
     public override void OnProjectileSpawn(int ID)

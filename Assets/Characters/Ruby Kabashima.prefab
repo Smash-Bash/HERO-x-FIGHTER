@@ -92,7 +92,7 @@ MonoBehaviour:
   model: {fileID: 0}
   characterName: Ruby
   fullName: Ruby Kabashima
-  moveset: {fileID: 11400000, guid: 2b24f49bfd9e06e4396ad87e9404dabe, type: 2}
+  moveset: {fileID: 11400000, guid: 4adb8c0844a6d24438e61930342ba41e, type: 2}
   groundedAcceleration: 10
   aerialAcceleration: 2
   walkSpeed: 5
@@ -101,6 +101,7 @@ MonoBehaviour:
   gravity: 25
   maxGravity: 10
   maxDoubleJumps: 1
+  hitAttack: 0
   displayIcon: {fileID: 21300000, guid: f5743e945edbd154688d07006d52bc69, type: 3}
   stockIcon: {fileID: 21300000, guid: ef48d189b02c53247b4fd7b04ac663d6, type: 3}
   currentMove:
@@ -116,6 +117,7 @@ MonoBehaviour:
   - {fileID: 6962730293370893042}
   - {fileID: 6624866601181841158}
   - {fileID: 647287449714758088}
+  projectileSpawners: []
   hitEffect: {fileID: 738131455022530534, guid: 59fe87abeb11e3048bbd525069057f2b, type: 3}
   hitPlayer: 0
   hitHitbox: 0

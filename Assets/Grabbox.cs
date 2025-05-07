@@ -72,7 +72,7 @@ public class Grabbox : MonoBehaviour
             scale = (transform.lossyScale.x + transform.lossyScale.y + transform.lossyScale.z) / 3;
             Vector3 depthMultiplier = Vector3.one;
             Color oldColor = Gizmos.color;
-            Gizmos.color = new Color(1, 1, 0, 0.25f);
+            Gizmos.color = new Color(1, 0, 1, 0.25f);
             Gizmos.DrawWireSphere(Vector3.Scale(depthMultiplier, transform.position), radius * scale);
             Gizmos.DrawWireSphere(Vector3.Scale(depthMultiplier, transform.position + (transform.forward * length)), radius * scale);
             Gizmos.DrawSphere(Vector3.Scale(depthMultiplier, transform.position), radius * scale);

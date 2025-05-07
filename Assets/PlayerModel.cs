@@ -26,6 +26,7 @@ public class PlayerModel : MonoBehaviour
     public Material angrier;
     public Material ohCrap;
     public Material damaged;
+    public Material hurt;
     public Material wincing;
 
     public enum MoveID
@@ -114,6 +115,10 @@ public class PlayerModel : MonoBehaviour
             {
                 nextMaterial = angry;
             }
+        }
+        else if (emotion == Emotion.Hurt)
+        {
+            nextMaterial = hurt;
         }
         else if (emotion == Emotion.Wincing)
         {

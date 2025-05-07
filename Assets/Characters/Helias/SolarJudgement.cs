@@ -17,21 +17,35 @@ public class SolarJudgement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hitbox.currentlyHitThings.Count != 0 && multiHits > 0 && projectile.hitstop < 0)
+        if (hitbox.currentlyHitThings.Count != 0 && projectile.hitstop < 0)
         {
-            multiHits--;
-            hitbox.currentlyHitThings.Clear();
-            transform.position += new Vector3(projectile.velocity.x * 2, projectile.velocity.y * 2, 0) * Time.deltaTime;
+            if (multiHits > 0)
+            {
+                multiHits--;
+                hitbox.currentlyHitThings.Clear();
+                transform.position += new Vector3(projectile.velocity.x * 2, projectile.velocity.y * 2, 0) * Time.deltaTime;
+            }
+            else
+            {
+                projectile.Explode();
+            }
         }
     }
 
     void LateUpdate()
     {
-        if (hitbox.currentlyHitThings.Count != 0 && multiHits > 0)
+        if (hitbox.currentlyHitThings.Count != 0 && projectile.hitstop < 0)
         {
-            multiHits--;
-            hitbox.currentlyHitThings.Clear();
-            transform.position += new Vector3(projectile.velocity.x * 2, projectile.velocity.y * 2, 0) * Time.deltaTime;
+            if (multiHits > 0)
+            {
+                multiHits--;
+                hitbox.currentlyHitThings.Clear();
+                transform.position += new Vector3(projectile.velocity.x * 2, projectile.velocity.y * 2, 0) * Time.deltaTime;
+            }
+            else
+            {
+                projectile.Explode();
+            }
         }
     }
 }

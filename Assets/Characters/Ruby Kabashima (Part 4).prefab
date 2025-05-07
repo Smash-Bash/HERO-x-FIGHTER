@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2462650881132130184, guid: 1219a0ea100be824f9f1c0468af1e273, type: 3}
       propertyPath: m_Name
-      value: Ruby (Part 4)
+      value: Ruby Kabashima (Part 4)
       objectReference: {fileID: 0}
     - target: {fileID: 4441606567463861040, guid: 1219a0ea100be824f9f1c0468af1e273, type: 3}
       propertyPath: model
@@ -92,7 +92,7 @@ MonoBehaviour:
   model: {fileID: 0}
   characterName: Ruby (Part 4)
   fullName: Ruby Kabashima<size=50%> (Part 4)
-  moveset: {fileID: 11400000, guid: 2b24f49bfd9e06e4396ad87e9404dabe, type: 2}
+  moveset: {fileID: 11400000, guid: 4adb8c0844a6d24438e61930342ba41e, type: 2}
   groundedAcceleration: 10
   aerialAcceleration: 2
   walkSpeed: 5
@@ -101,7 +101,8 @@ MonoBehaviour:
   gravity: 25
   maxGravity: 10
   maxDoubleJumps: 1
-  displayIcon: {fileID: 21300000, guid: 87fe390b748a3ac46ad1d985f1eb293b, type: 3}
+  hitAttack: 0
+  displayIcon: {fileID: 21300000, guid: a3067905e3264ae438ce9c46b96a6deb, type: 3}
   stockIcon: {fileID: 21300000, guid: ef48d189b02c53247b4fd7b04ac663d6, type: 3}
   currentMove:
     name: 
@@ -115,6 +116,7 @@ MonoBehaviour:
   - {fileID: 5434021146902025505}
   - {fileID: 8033194943973444907}
   - {fileID: 6065068181283829983}
+  projectileSpawners: []
   hitEffect: {fileID: 738131455022530534, guid: 59fe87abeb11e3048bbd525069057f2b, type: 3}
   hitPlayer: 0
   hitHitbox: 0

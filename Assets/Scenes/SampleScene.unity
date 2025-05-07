@@ -1056,6 +1056,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194229}
     - target: {fileID: 9179664207726559258, guid: bca3f51e47f734e42ad81ec9e88c7713, type: 3}
+      propertyPath: defaultFighter
+      value: 
+      objectReference: {fileID: -5864444387263843958, guid: e6afe4192cde55d468db71161bba0f38, type: 3}
+    - target: {fileID: 9179664207726559258, guid: bca3f51e47f734e42ad81ec9e88c7713, type: 3}
       propertyPath: activeBlastZones
       value: 1
       objectReference: {fileID: 0}
