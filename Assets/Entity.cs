@@ -52,7 +52,7 @@ public class Entity : MonoBehaviour
         damage += damageValue;
     }
 
-    public virtual void HitboxDamage(HitboxInfo hitbox, Entity attacker, int direction, float additionalAngle = 0)
+    public virtual void HitboxDamage(HitboxInfo hitbox, Entity attacker, Vector3 hitPoint, int direction, float additionalAngle = 0)
     {
         if (true && !invincible)
         {

@@ -4,9 +4,23 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - cameraScript: {instanceID: 0}
+  - cutscenes: {instanceID: 0}
   - platformHUDDisplays: {instanceID: 0}
   - platformHUDPrefab: {fileID: 8492329680725492888, guid: d3d0037f365aa6d4c94caeeeea87841a, type: 3}
   - blastEffectPrefab: {fileID: 7652995474905384871, guid: b34fe04acd040e745a2bab034545f9be, type: 3}
+  - traditionalHUD: {instanceID: 0}
+  - platformHUD: {instanceID: 0}
+  - announcements: {instanceID: 0}
+  - endOfMatchScreen: {instanceID: 0}
+  - roundDisplay: {instanceID: 0}
+  - announcementDisplay: {instanceID: 0}
+  - fight: {instanceID: 0}
+  - down: {instanceID: 0}
+  - game: {instanceID: 0}
+  - hitEffect: {instanceID: 0}
+  - defaultFighter: {instanceID: 0}
+  - fighterCatalogue: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

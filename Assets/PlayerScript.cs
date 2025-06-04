@@ -64,6 +64,7 @@ public class PlayerScript : Entity
     [Header("Debug")]
     public bool getupTest;
     public bool escapeTest;
+    public bool aerialAttackTest;
 
     // Start is called before the first frame update
     public override void Start()
@@ -194,18 +195,20 @@ public class PlayerScript : Entity
         {
             velocity.x = Mathf.Lerp(velocity.x, 0, Time.deltaTime * (grounded ? fighter.groundedAcceleration : fighter.aerialAcceleration));
 
+            input.ignoreBuffers = true;
             if (input.GetAttackDown())
             {
-                input.attackBuffer = 0.025f;
+                input.attackBuffer = 0.25f;
             }
             if (input.GetSpecialDown())
             {
-                input.specialBuffer = 0.025f;
+                input.specialBuffer = 0.25f;
             }
             if (input.GetJumpDown())
             {
-                input.jumpBuffer = 0.025f;
+                input.jumpBuffer = 0.25f;
             }
+            input.ignoreBuffers = false;
 
             if (fighter.currentMove != null)
             {
@@ -221,12 +224,12 @@ public class PlayerScript : Entity
                 }
             }
 
-            if (!grounded && hitstun <= 0 && hitstop <= 0 && unactionable <= 0)
+            if (!grounded && hitstun <= 0 && hitstop <= 0 && unactionable <= 0 && !model.suppressControl)
             {
                 GetVelocityInput();
             }
         }
-        else
+        else if (!model.suppressControl)
         {
             GetVelocityInput();
         }
@@ -263,6 +266,11 @@ public class PlayerScript : Entity
             {
                 fighter.SetAttack("Neutral Air");
             }
+        }
+        if (aerialAttackTest && free && hitstun < 0 && hitstop < 0)
+        {
+            transform.position = new Vector3(0, 1f, 0);
+            velocity = Vector2.zero;
         }
 
         free = unactionable <= 0 && hitstun <= 0 && (model.animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded") || model.animator.GetCurrentAnimatorStateInfo(0).IsName("Airborne") || model.animator.GetCurrentAnimatorStateInfo(0).IsName("Launched") || model.animator.GetCurrentAnimatorStateInfo(0).IsName("Land") || model.animator.GetCurrentAnimatorStateInfo(0).IsName("Back Double Jump") || model.animator.GetCurrentAnimatorStateInfo(0).IsName("Front Double Jump") || model.animator.GetCurrentAnimatorStateInfo(0).IsName("Pratfall"));
@@ -644,7 +652,7 @@ public class PlayerScript : Entity
         return mantling;
     }
 
-    public override void HitboxDamage(HitboxInfo hitbox, Entity attacker, int direction, float additionalAngle = 0)
+    public override void HitboxDamage(HitboxInfo hitbox, Entity attacker, Vector3 hitPoint, int direction, float additionalAngle = 0)
     {
         bool blocking = (free || blockStop || shielding) && ((multiplayer.gamemode == MultiplayerManager.gamemodeType.Traditional && Mathf.Abs(input.GetLeftStickX()) > 0.2f && input.GetLeftStickX() * Mathf.Infinity == direction * Mathf.Infinity) || (multiplayer.gamemode == MultiplayerManager.gamemodeType.Platform && shielding));
 
@@ -702,7 +710,7 @@ public class PlayerScript : Entity
         }
         else
         {
-            base.HitboxDamage(hitbox, attacker, direction);
+            base.HitboxDamage(hitbox, attacker, hitPoint, direction);
 
             doubleJumps = fighter.maxDoubleJumps;
             hasWallJump = true;
@@ -725,9 +733,7 @@ public class PlayerScript : Entity
 
             var x = (Mathf.Cos(angle) * knockback.x) - (Mathf.Sin(angle) * knockback.y);
             var y = (Mathf.Sin(angle) * knockback.x) + (Mathf.Cos(angle) * knockback.y);
-            Vector2 final = new Vector2(x * direction, y);
-
-
+            Vector2 final = new Vector2(x * (hitbox.directionIndependentAngle ? 1 : direction), y);
 
             attacker.combo++;
 
@@ -748,6 +754,11 @@ public class PlayerScript : Entity
             }
             controller.Move(Vector3.zero);
 
+            Vector3 attractPosition = Vector3.MoveTowards(transform.position, hitPoint, hitbox.attraction);
+            controller.Move(attractPosition - transform.position);
+
+            controller.Move(Vector3.zero);
+
             grounded = false;
 
             if (hitstun > 0)
@@ -763,7 +774,7 @@ public class PlayerScript : Entity
         bool bounced = false;
         RaycastHit hit;
         int LayersToHit = LayerMask.GetMask("Default");
-        if (velocity.magnitude > 10 + hitCombo && Physics.Raycast(transform.position, velocity, out hit, Mathf.Clamp(velocity.magnitude / 10, 1, 5), LayersToHit))
+        if (multiplayer.gamemode != MultiplayerManager.gamemodeType.Traditional && (velocity.magnitude > 10 + hitCombo && Physics.Raycast(transform.position, velocity, out hit, Mathf.Clamp(velocity.magnitude / 10, 1, 5), LayersToHit)))
         {
             Vector3 newVelocity = Vector3.Reflect(velocity, hit.normal) / Mathf.Max(1.125f, hit.normal.y * (Mathf.Max(0, 100 - damage) / 100) * 2);
             velocity = new Vector2(newVelocity.x, newVelocity.y);
@@ -973,6 +984,17 @@ public class PlayerScript : Entity
         }
 
         return newHitEffect;
+    }
+
+    public float GetMovementAngle()
+    {
+        Vector2 dir = velocity * new Vector2(direction, direction);
+        if (grounded)
+        {
+            dir.y = 0;
+        }
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        return angle;
     }
 
     public void ResetPlayer()

@@ -83,7 +83,7 @@ public class GamepadInput : PlayerInput
     public override bool GetAttackDown()
     {
         bool buffered = false;
-        if (attackBuffer > 0)
+        if (attackBuffer > 0 && !ignoreBuffers)
         {
             buffered = true;
         }
@@ -103,7 +103,7 @@ public class GamepadInput : PlayerInput
     public override bool GetSpecialDown()
     {
         bool buffered = false;
-        if (specialBuffer > 0)
+        if (specialBuffer > 0 && !ignoreBuffers)
         {
             buffered = true;
         }
@@ -123,7 +123,7 @@ public class GamepadInput : PlayerInput
     public override bool GetJumpDown()
     {
         bool buffered = false;
-        if (jumpBuffer > 0)
+        if (jumpBuffer > 0 && !ignoreBuffers)
         {
             buffered = true;
         }

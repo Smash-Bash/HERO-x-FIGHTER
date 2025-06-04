@@ -5293,6 +5293,7 @@ MonoBehaviour:
   invincible: 0
   talking: 0
   ledgeSnap: 0
+  suppressControl: 0
   face: {fileID: 8042963688457678301}
   idle: {fileID: 2100000, guid: b2359fd4a58acbb44aba4589458aa6a1, type: 2}
   angry: {fileID: 2100000, guid: c1e6de2925d18884281d87ac6c6e7a2c, type: 2}

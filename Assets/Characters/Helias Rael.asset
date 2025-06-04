@@ -26,6 +26,7 @@ MonoBehaviour:
     - damage: 3
       hitstun: 0.25
       hitstop: 0.05
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 2.5
@@ -47,6 +48,7 @@ MonoBehaviour:
     - damage: 3
       hitstun: 0.25
       hitstop: 0.05
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 2.5
@@ -65,10 +67,11 @@ MonoBehaviour:
     - damage: 6
       hitstun: 0.3
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
-      scaledKnockback: 20
-      unscaledKnockback: 5
-      angle: 45
+      scaledKnockback: 10
+      unscaledKnockback: 20
+      angle: 30
       guaranteeLaunch: 0
       forwardDependentAngle: 0
       type: 2
@@ -84,9 +87,10 @@ MonoBehaviour:
     - Back Air
     - Forward Special
     hitboxes:
-    - damage: 5
+    - damage: 7
       hitstun: 0.5
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 7.5
       unscaledKnockback: 7.5
@@ -105,9 +109,10 @@ MonoBehaviour:
     - Jab 1
     - Forward Tilt
     hitboxes:
-    - damage: 4
+    - damage: 3
       hitstun: 0.25
       hitstop: 0.025
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 5
       unscaledKnockback: 5
@@ -126,6 +131,7 @@ MonoBehaviour:
     - damage: 5
       hitstun: 0.25
       hitstop: 0.05
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 5
       unscaledKnockback: 10
@@ -137,6 +143,7 @@ MonoBehaviour:
     - damage: 2
       hitstun: 0.1
       hitstop: 0.05
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 2.5
       unscaledKnockback: 5
@@ -155,6 +162,7 @@ MonoBehaviour:
     - damage: 6
       hitstun: 0.25
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 20
       unscaledKnockback: 10
@@ -166,6 +174,7 @@ MonoBehaviour:
     - damage: 8
       hitstun: 0.25
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 20
       unscaledKnockback: 20
@@ -184,9 +193,10 @@ MonoBehaviour:
     - damage: 6
       hitstun: 0.3
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
-      scaledKnockback: 20
-      unscaledKnockback: 5
+      scaledKnockback: 10
+      unscaledKnockback: 20
       angle: 30
       guaranteeLaunch: 0
       forwardDependentAngle: 0
@@ -202,13 +212,26 @@ MonoBehaviour:
     - Forward Air
     - Back Air
     hitboxes:
-    - damage: 7
+    - damage: 1
+      hitstun: 0.25
+      hitstop: 0.025
+      attraction: 0.5
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 0
+      unscaledKnockback: 2.5
+      angle: 75
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
+      type: 0
+      hitEffect: {fileID: 0}
+    - damage: 4
       hitstun: 0.25
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 10
       unscaledKnockback: 7.5
-      angle: 120
+      angle: 75
       guaranteeLaunch: 0
       forwardDependentAngle: 0
       type: 0
@@ -223,6 +246,7 @@ MonoBehaviour:
     - damage: 5
       hitstun: 0.25
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 15
       unscaledKnockback: 7.5
@@ -238,12 +262,13 @@ MonoBehaviour:
     airborne: 1
     nextMoves: []
     hitboxes:
-    - damage: 6
-      hitstun: 0.5
-      hitstop: 0.25
+    - damage: 3
+      hitstun: 0.25
+      hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
-      scaledKnockback: 25
-      unscaledKnockback: 10
+      scaledKnockback: 5
+      unscaledKnockback: 5
       angle: -75
       guaranteeLaunch: 1
       forwardDependentAngle: 0
@@ -260,6 +285,7 @@ MonoBehaviour:
     - damage: 3
       hitstun: 0.25
       hitstop: 0.05
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 2.5
@@ -278,6 +304,7 @@ MonoBehaviour:
     - damage: 3
       hitstun: 0.25
       hitstop: 0.05
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 2.5
@@ -294,13 +321,14 @@ MonoBehaviour:
     nextMoves:
     - Aerials
     hitboxes:
-    - damage: 2
+    - damage: 8
       hitstun: 0.1
       hitstop: 0.01
+      attraction: 0
       attackerHitstopMultiplier: 1
-      scaledKnockback: 0
+      scaledKnockback: 10
       unscaledKnockback: 15
-      angle: 45
+      angle: 30
       guaranteeLaunch: 1
       forwardDependentAngle: 0
       type: 0
@@ -315,6 +343,7 @@ MonoBehaviour:
     - damage: 2.5
       hitstun: 1
       hitstop: 0.25
+      attraction: 0.5
       attackerHitstopMultiplier: 1
       scaledKnockback: 7.5
       unscaledKnockback: 10
@@ -333,6 +362,7 @@ MonoBehaviour:
     - damage: 15
       hitstun: 1
       hitstop: 0.25
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 15
       unscaledKnockback: 30
@@ -343,8 +373,9 @@ MonoBehaviour:
       hitEffect: {fileID: 3269442930348277615, guid: d25cdc23de90ec0499c44bf3b505fff5, type: 3}
     - damage: 10
       hitstun: 1
-      hitstop: 0.25
-      attackerHitstopMultiplier: 1
+      hitstop: 1.25
+      attraction: 0
+      attackerHitstopMultiplier: 0
       scaledKnockback: 15
       unscaledKnockback: 20
       angle: 30
@@ -369,6 +400,7 @@ MonoBehaviour:
     - damage: 20
       hitstun: 1
       hitstop: 0.5
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 25
       unscaledKnockback: 25

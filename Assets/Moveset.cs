@@ -28,12 +28,14 @@ public class HitboxInfo
     public float damage = 1;
     public float hitstun = 0.2f;
     public float hitstop = 0.05f;
+    public float attraction = 0f;
     public float attackerHitstopMultiplier = 1;
     public float scaledKnockback = 2.5f;
     public float unscaledKnockback = 0f;
     public float angle = 0;
     public bool guaranteeLaunch = false;
     public bool forwardDependentAngle = false;
+    public bool directionIndependentAngle = false;
     public HitboxType type;
     public GameObject hitEffect;
 }

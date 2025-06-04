@@ -29,7 +29,7 @@ public class Hitbox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scale = (transform.lossyScale.x + transform.lossyScale.y + transform.lossyScale.z) / 3;
+        scale = (transform.localScale.x + transform.localScale.y + transform.localScale.z) / 3;
     }
 
     public List<Entity> Attack(Entity owner)
@@ -69,7 +69,7 @@ public class Hitbox : MonoBehaviour
     {
         if (isActiveAndEnabled)
         {
-            scale = (transform.lossyScale.x + transform.lossyScale.y + transform.lossyScale.z) / 3;
+            scale = (transform.localScale.x + transform.localScale.y + transform.localScale.z) / 3;
             Vector3 depthMultiplier = Vector3.one;
             Color oldColor = Gizmos.color;
             Gizmos.color = new Color(1, 0, 0, 0.25f);
@@ -81,6 +81,11 @@ public class Hitbox : MonoBehaviour
 
             Gizmos.DrawLine(transform.position, transform.position + transform.forward);
         }
+    }
+
+    public void OnEnable()
+    {
+        currentlyHitThings.Clear();
     }
 
     public void OnDisable()

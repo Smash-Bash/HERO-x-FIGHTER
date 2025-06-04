@@ -25,6 +25,11 @@ public class MenuTransition : MonoBehaviour
             transitionImage.raycastTarget = true;
             if (transitionImage.color.a >= 1)
             {
+                foreach (GameObject background in menu.allBackgrounds)
+                {
+                    background.SetActive(false);
+                }
+                to.background.SetActive(true);
                 from.gameObject.SetActive(false);
                 to.gameObject.SetActive(true);
                 //foreach (MenuPlayer player in menu.multiplayer.allPlayers)

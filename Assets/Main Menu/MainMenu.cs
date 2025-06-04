@@ -18,9 +18,11 @@ public class MainMenu : MonoBehaviour
     public float demoVideoTimer;
     public GameObject normalDisplay;
     public GameObject demoDisplay;
+    public UniversalInput input;
 
     [Header("Screens")]
     public MenuScreen[] allScreens;
+    public GameObject[] allBackgrounds;
     public MenuScreen titleScreen;
     public MenuScreen mainMenu;
     public EventSystem eventSystem;

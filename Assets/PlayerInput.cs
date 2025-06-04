@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     public float attackBuffer;
     public float specialBuffer;
     public float jumpBuffer;
+    public bool ignoreBuffers;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -18,7 +19,7 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        if (player ? player.hitstop <= 0 : true)
+        if (player ? true : true)
         {
             attackBuffer -= Time.deltaTime;
             specialBuffer -= Time.deltaTime;

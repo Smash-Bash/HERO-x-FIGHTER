@@ -88,8 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8fae68b91a6e349b14092e6f056c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  model: {fileID: 0}
+  player: {fileID: 4116316492388305199}
+  model: {fileID: 2694955668617396953}
   characterName: Ruby (Part 4)
   fullName: Ruby Kabashima<size=50%> (Part 4)
   moveset: {fileID: 11400000, guid: 4adb8c0844a6d24438e61930342ba41e, type: 2}
@@ -102,6 +102,7 @@ MonoBehaviour:
   maxGravity: 10
   maxDoubleJumps: 1
   hitAttack: 0
+  grabbedOpponent: 0
   displayIcon: {fileID: 21300000, guid: a3067905e3264ae438ce9c46b96a6deb, type: 3}
   stockIcon: {fileID: 21300000, guid: ef48d189b02c53247b4fd7b04ac663d6, type: 3}
   currentMove:
@@ -116,6 +117,8 @@ MonoBehaviour:
   - {fileID: 5434021146902025505}
   - {fileID: 8033194943973444907}
   - {fileID: 6065068181283829983}
+  - {fileID: 333461345009990427}
+  grabboxes: []
   projectileSpawners: []
   hitEffect: {fileID: 738131455022530534, guid: 59fe87abeb11e3048bbd525069057f2b, type: 3}
   hitPlayer: 0
@@ -125,6 +128,17 @@ MonoBehaviour:
   glowL: {fileID: 447946186400942116}
   glowR: {fileID: 766259988367024541}
   lightning: {fileID: 4090232813413398172}
+--- !u!114 &4116316492388305199 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4441606567463861040, guid: 1219a0ea100be824f9f1c0468af1e273, type: 3}
+  m_PrefabInstance: {fileID: 325342920428925471}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2787392011613003159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44da89a65f8bfb14cb3716780e944a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6878811898471616705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6626390788835844830, guid: 1219a0ea100be824f9f1c0468af1e273, type: 3}
@@ -141,6 +155,26 @@ PrefabInstance:
     - target: {fileID: 150362210764944632, guid: 4a06622492878ca48ae8226590993ac0, type: 3}
       propertyPath: player
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 859207871596564798, guid: 4a06622492878ca48ae8226590993ac0, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 859207871596564798, guid: 4a06622492878ca48ae8226590993ac0, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 899971567284060675}
+    - target: {fileID: 859207871596564798, guid: 4a06622492878ca48ae8226590993ac0, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: WindLaunch
+      objectReference: {fileID: 0}
+    - target: {fileID: 859207871596564798, guid: 4a06622492878ca48ae8226590993ac0, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FutureRuby, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 859207871596564798, guid: 4a06622492878ca48ae8226590993ac0, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2113533698379176198, guid: 4a06622492878ca48ae8226590993ac0, type: 3}
       propertyPath: player
@@ -199,6 +233,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a06622492878ca48ae8226590993ac0, type: 3}
+--- !u!114 &333461345009990427 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5953182089571465020, guid: 4a06622492878ca48ae8226590993ac0, type: 3}
+  m_PrefabInstance: {fileID: 6214196462431702055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f01de1710b34149be4d0bcfd0ff5c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &447946186400942116 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5767473317503058947, guid: 4a06622492878ca48ae8226590993ac0, type: 3}

@@ -22,8 +22,13 @@ public class SolarJudgement : MonoBehaviour
             if (multiHits > 0)
             {
                 multiHits--;
+                foreach (GameObject hitObject in hitbox.currentlyHitThings)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, hitObject.transform.position, 0.125f);
+                }
                 hitbox.currentlyHitThings.Clear();
                 transform.position += new Vector3(projectile.velocity.x * 2, projectile.velocity.y * 2, 0) * Time.deltaTime;
+                projectile.velocity = Vector3.up * 5;
             }
             else
             {

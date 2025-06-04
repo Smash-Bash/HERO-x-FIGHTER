@@ -33,15 +33,15 @@ public class Helias : Fighter
             floatAmount = 1;
         }
 
-        if (player.free && floatAmount > 0 && (hasFloat || floating) && player.input.GetJump() && !player.grounded && player.velocity.y <= 0)
+        if (floatAmount > 0 && (hasFloat || floating) && player.input.GetJump() && !player.grounded && player.velocity.y <= 0 && !player.pratfall)
         {
             hasFloat = false;
             floating = true;
             floatAmount -= Time.deltaTime;
 
-            player.velocity.y = 0f;
+            player.velocity.y = Mathf.Max(player.velocity.y, 0);
         }
-        if (!player.input.GetJump() || !player.free || player.pratfall || player.hitstun > 0)
+        if (!player.input.GetJump() || player.pratfall || player.hitstun > 0)
         {
             floating = false;
         }
@@ -76,7 +76,7 @@ public class Helias : Fighter
     {
         base.OnProjectileSpawn(ID);
 
-        if (ID == 2)
+        if (ID == 3)
         {
             solarJudgementCharge = 0;
         }
@@ -94,7 +94,7 @@ public class Helias : Fighter
 
                 if (hit.transform.GetComponent<Entity>() != null)
                 {
-                    hit.transform.GetComponent<Entity>().HitboxDamage(currentMove.hitboxes[0], player, player.direction);
+                    hit.transform.GetComponent<Entity>().HitboxDamage(currentMove.hitboxes[0], player, hit.transform.position, player.direction);
                 }
             }
             else

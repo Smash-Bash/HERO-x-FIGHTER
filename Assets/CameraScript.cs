@@ -7,6 +7,7 @@ public class CameraScript : MonoBehaviour
     public MultiplayerManager multiplayer;
     public Camera camera;
     public float size = 5;
+    public float cameraDistance = -10;
     public Vector2 cameraShake;
     public Vector3 spawnPoint;
     public float spawnSize;
@@ -68,17 +69,24 @@ public class CameraScript : MonoBehaviour
             position /= multiplayer.alivePlayers;
         }
 
-        position = new Vector3(position.x, position.y, -10);
+        position = new Vector3(position.x, position.y, cameraDistance - ((camera.orthographicSize - size) * 2));
 
         float sizeX = (camera.orthographicSize * 2) * (camera.aspect);
         float sizeY = camera.orthographicSize * 2;
 
-        position = new Vector3(Mathf.Clamp(position.x, (multiplayer.blastZone.x * -0.5f) + (sizeX / 2), (multiplayer.blastZone.x * 0.5f) - (sizeX / 2)), Mathf.Clamp(position.y, (multiplayer.blastZone.y * -0.5f) + (sizeY / 2), (multiplayer.blastZone.y * 0.5f) - (sizeY / 2)), -10);
+        if (camera.orthographic)
+        {
+            position = new Vector3(Mathf.Clamp(position.x, (multiplayer.blastZone.x * -0.5f) + (sizeX / 2), (multiplayer.blastZone.x * 0.5f) - (sizeX / 2)), Mathf.Clamp(position.y, (multiplayer.blastZone.y * -0.5f) + (sizeY / 2), (multiplayer.blastZone.y * 0.5f) - (sizeY / 2)), cameraDistance - ((camera.orthographicSize - size) * 2));
+        }
 
         transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * 5);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, (multiplayer.blastZone.x * -0.5f) + (sizeX / 2), (multiplayer.blastZone.x * 0.5f) - (sizeX / 2)), Mathf.Clamp(transform.position.y, (multiplayer.blastZone.y * -0.5f) + (sizeY / 2), (multiplayer.blastZone.y * 0.5f) - (sizeY / 2)), -10);
+        if (camera.orthographic)
+        {
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, (multiplayer.blastZone.x * -0.5f) + (sizeX / 2), (multiplayer.blastZone.x * 0.5f) - (sizeX / 2)), Mathf.Clamp(transform.position.y, (multiplayer.blastZone.y * -0.5f) + (sizeY / 2), (multiplayer.blastZone.y * 0.5f) - (sizeY / 2)), cameraDistance - ((camera.orthographicSize - size) * 2));
 
-        //camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, Mathf.Clamp(newSize, size, smallestSize), Time.deltaTime * 5);
+            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, Mathf.Clamp(newSize, size, smallestSize), Time.deltaTime * 5);
+        }
+
         if (multiplayer.endOfRound)
         {
             camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, 2.5f, Time.deltaTime * 5);

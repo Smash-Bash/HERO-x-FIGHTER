@@ -652,13 +652,13 @@ AnimationClip:
         time: 0
         value: 0
         inSlope: Infinity
-        outSlope: 2
+        outSlope: 4
         tangentMode: 71
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 0.25
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -2644,13 +2644,13 @@ AnimationClip:
         time: 0
         value: 0
         inSlope: Infinity
-        outSlope: 2
+        outSlope: 4
         tangentMode: 71
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 0.25
         value: 1
         inSlope: Infinity
         outSlope: Infinity

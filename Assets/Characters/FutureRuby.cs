@@ -36,9 +36,9 @@ public class FutureRuby : Fighter
             kineticLeap = false;
         }
 
-        if (player.grounded)
+        if (!player.pratfall)
         {
-            energy = Mathf.MoveTowards(energy, 1, Time.deltaTime / 25);
+            energy = Mathf.MoveTowards(energy, 1, Time.deltaTime / 20);
         }
     }
 
@@ -71,7 +71,24 @@ public class FutureRuby : Fighter
                 canSetAttack = false;
             }
         }
+        if (attackName == "A2A" || attackName == "Down Air")
+        {
+            InputReverse();
+        }
 
         return canSetAttack;
+    }
+
+    public void WindLaunch()
+    {
+        if (player.input.GetLeftStick() != Vector2.zero)
+        {
+            player.velocity = player.input.GetLeftStick() * 20;
+            player.FaceDirection(player.input.GetLeftStickX());
+        }
+        else
+        {
+            player.velocity = new Vector2(player.direction, 1).normalized * 20;
+        }
     }
 }

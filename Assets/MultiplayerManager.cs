@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +40,7 @@ public class MultiplayerManager : MonoBehaviour
     public GameObject hitEffect;
     public Sprite[] roundNumbers;
     public Fighter defaultFighter;
+    public FighterCatalogue fighterCatalogue;
 
     public enum gamemodeType
     {
@@ -93,7 +93,15 @@ public class MultiplayerManager : MonoBehaviour
             int index = 0;
             foreach (Fighter fighter in GameSystems.fighters)
             {
-                Fighter newFighter = GameObject.Instantiate(fighter.gameObject, Vector3.zero, transform.rotation).GetComponent<Fighter>();
+                Fighter newFighter;
+                if (fighter is RandomCharacter)
+                {
+                    newFighter = GameObject.Instantiate(fighterCatalogue.fighters[Random.Range(0, fighterCatalogue.fighters.Length)].gameObject, Vector3.zero, transform.rotation).GetComponent<Fighter>();
+                }
+                else
+                {
+                    newFighter = GameObject.Instantiate(fighter.gameObject, Vector3.zero, transform.rotation).GetComponent<Fighter>();
+                }
                 newFighter.player = newFighter.GetComponent<PlayerScript>();
                 if (GameSystems.inputIDs[index] == 0)
                 {

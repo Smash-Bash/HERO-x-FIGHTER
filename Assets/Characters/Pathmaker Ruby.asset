@@ -26,12 +26,14 @@ MonoBehaviour:
     - damage: 3
       hitstun: 0.25
       hitstop: 0.025
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 2.5
       angle: 0
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
   - name: Jab 2
@@ -47,12 +49,14 @@ MonoBehaviour:
     - damage: 3
       hitstun: 0.25
       hitstop: 0.025
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 2.5
       angle: 0
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
   - name: Forward Tilt
@@ -65,12 +69,14 @@ MonoBehaviour:
     - damage: 6
       hitstun: 0.3
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 20
       unscaledKnockback: 5
       angle: 30
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 0}
   - name: Up Tilt
@@ -81,14 +87,16 @@ MonoBehaviour:
     nextMoves: []
     hitboxes:
     - damage: 7
-      hitstun: 0.25
+      hitstun: 0.875
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 12.5
       angle: 90
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 1
       hitEffect: {fileID: 0}
   - name: Down Tilt
@@ -104,12 +112,14 @@ MonoBehaviour:
     - damage: 4
       hitstun: 0.25
       hitstop: 0.025
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 5
       unscaledKnockback: 5
       angle: 25
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 1
       hitEffect: {fileID: 0}
   - name: Neutral Air
@@ -122,12 +132,14 @@ MonoBehaviour:
     - damage: 2
       hitstun: 0.2
       hitstop: 0.05
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 2.5
       unscaledKnockback: 10
       angle: 45
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
   - name: Forward Air
@@ -137,15 +149,17 @@ MonoBehaviour:
     airborne: 1
     nextMoves: []
     hitboxes:
-    - damage: 7
+    - damage: 5
       hitstun: 0.25
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 15
       unscaledKnockback: 10
       angle: 30
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
   - name: Back Tilt
@@ -158,12 +172,14 @@ MonoBehaviour:
     - damage: 6
       hitstun: 0.3
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 20
       unscaledKnockback: 5
       angle: 30
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 0}
   - name: Up Air
@@ -179,12 +195,14 @@ MonoBehaviour:
     - damage: 7
       hitstun: 0.25
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 15
       unscaledKnockback: 0
       angle: 120
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
   - name: Back Air
@@ -197,12 +215,14 @@ MonoBehaviour:
     - damage: 8
       hitstun: 0.3
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 25
       unscaledKnockback: 7.5
       angle: 160
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 0}
   - name: Down Air
@@ -210,17 +230,20 @@ MonoBehaviour:
     input: A2A
     grounded: 0
     airborne: 1
-    nextMoves: []
+    nextMoves:
+    - Aerials
     hitboxes:
     - damage: 6
       hitstun: 0.5
       hitstop: 0.25
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 25
       unscaledKnockback: 10
       angle: -75
       guaranteeLaunch: 1
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 738131455022530534, guid: 5d4dbb55a887ac648b16b38c81eb6ec8, type: 3}
   - name: Neutral Special
@@ -234,12 +257,14 @@ MonoBehaviour:
     - damage: 2.5
       hitstun: 0
       hitstop: 0
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 2.5
       unscaledKnockback: 0
       angle: 90
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
   - name: Forward Special
@@ -247,17 +272,20 @@ MonoBehaviour:
     input: 6B
     grounded: 1
     airborne: 1
-    nextMoves: []
+    nextMoves:
+    - Aerials
     hitboxes:
     - damage: 2
       hitstun: 0.1
       hitstop: 0.01
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 10
       angle: 15
       guaranteeLaunch: 1
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
   - name: Up Special
@@ -270,12 +298,14 @@ MonoBehaviour:
     - damage: 15
       hitstun: 1
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 7.5
       unscaledKnockback: 15
       angle: 75
       guaranteeLaunch: 1
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 1
       hitEffect: {fileID: 738131455022530534, guid: 5d4dbb55a887ac648b16b38c81eb6ec8, type: 3}
   - name: Down Special
@@ -288,22 +318,26 @@ MonoBehaviour:
     - damage: 7.5
       hitstun: 0.5
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 7.5
       unscaledKnockback: 15
       angle: 0
       guaranteeLaunch: 1
       forwardDependentAngle: 1
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 738131455022530534, guid: 5d4dbb55a887ac648b16b38c81eb6ec8, type: 3}
     - damage: 12.5
       hitstun: 1
       hitstop: 0.25
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 10
       unscaledKnockback: 15
       angle: -75
       guaranteeLaunch: 1
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 3269442930348277615, guid: d25cdc23de90ec0499c44bf3b505fff5, type: 3}

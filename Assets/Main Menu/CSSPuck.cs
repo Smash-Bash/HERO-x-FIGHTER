@@ -26,7 +26,18 @@ public class CSSPuck : MonoBehaviour
 
         if (currentCharacter != null)
         {
-            currentCharacter.transform.position = Vector3.Lerp(currentCharacter.transform.position, characterBase.position, Time.deltaTime * 15);
+            if (currentCharacter.name == "Random(Clone)")
+            {
+                currentCharacter.transform.position = Vector3.Lerp(currentCharacter.transform.position, characterBase.position + (Vector3.up * 0.5f) + (Vector3.up * 0.1f * Mathf.Sin(Time.time * 2)), Time.deltaTime * 15);
+                if (currentCharacter.transform.parent.localPosition.x < 0)
+                {
+                    currentCharacter.transform.localScale = new Vector3(-1, 1, 1);
+                }
+            }
+            else
+            {
+                currentCharacter.transform.position = Vector3.Lerp(currentCharacter.transform.position, characterBase.position, Time.deltaTime * 15);
+            }
         }
 
         if (oldButton != currentCharacterButton)
@@ -42,7 +53,7 @@ public class CSSPuck : MonoBehaviour
             Destroy(currentCharacter);
         }
 
-        if (currentCharacterButton.fighter != null)
+        if (currentCharacterButton ? currentCharacterButton.fighter != null : false)
         {
             fighterName.text = currentCharacterButton.fighter.fullName;
 

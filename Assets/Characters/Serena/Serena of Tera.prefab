@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1146202676165026259
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3714287763802593675}
+    m_Modifications:
+    - target: {fileID: 3829610636300571377, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6187286152069382245}
+    - target: {fileID: 5817714144395766238, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+      propertyPath: m_Name
+      value: Serena
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626902387494351716, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626902387494351716, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626902387494351716, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626902387494351716, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626902387494351716, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626902387494351716, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626902387494351716, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626902387494351716, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626902387494351716, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626902387494351716, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+--- !u!114 &4237222971420963618 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3829610636300571377, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+  m_PrefabInstance: {fileID: 1146202676165026259}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968d64e6bd6dd314db5a0f5c489d96d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &6061666834055353015 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6626902387494351716, guid: ea6d6f2623954cb4e8684b9e8353149b, type: 3}
+  m_PrefabInstance: {fileID: 1146202676165026259}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7853644376242194762
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2787392011613003159, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: m_Name
+      value: Serena of Tera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116316492388305199, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 4237222971420963618}
+    - target: {fileID: 6878811898471616705, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878811898471616705, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878811898471616705, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878811898471616705, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878811898471616705, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878811898471616705, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878811898471616705, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878811898471616705, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878811898471616705, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878811898471616705, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098804463073752306, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 4237222971420963618}
+    - target: {fileID: 7098804463073752306, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: fullName
+      value: Serena of Tera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098804463073752306, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: characterName
+      value: Serena
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 3811937199644547527, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6878811898471616705, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6061666834055353015}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+--- !u!4 &3714287763802593675 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6878811898471616705, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+  m_PrefabInstance: {fileID: 7853644376242194762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6187286152069382245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4116316492388305199, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+  m_PrefabInstance: {fileID: 7853644376242194762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44da89a65f8bfb14cb3716780e944a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

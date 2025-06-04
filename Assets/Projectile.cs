@@ -74,7 +74,7 @@ public class Projectile : MonoBehaviour
                         print(entity.gameObject);
                         hitEntities.Add(entity);
                         hitstop = move.hitboxes[hitbox.hitboxNum].hitstop;
-                        entity.HitboxDamage(move.hitboxes[hitbox.hitboxNum], owner, owner.direction, hitbox.transform.eulerAngles.x);
+                        entity.HitboxDamage(move.hitboxes[hitbox.hitboxNum], owner, transform.position, owner.direction, hitbox.transform.eulerAngles.x);
                         if (!entity.invincible)
                         {
                             owner.fighter.OnHit(move.name);

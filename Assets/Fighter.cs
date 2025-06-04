@@ -23,12 +23,14 @@ public class Fighter : MonoBehaviour
 
     [Header("Runtime")]
     public bool hitAttack;
+    public bool grabbedOpponent;
 
     [Header("References")]
     public Sprite displayIcon;
     public Sprite stockIcon;
     public Move currentMove;
     public Hitbox[] hitboxes;
+    public Grabbox[] grabboxes;
     public ProjectileSpawner[] projectileSpawners;
     public GameObject hitEffect;
     public bool hitPlayer;
@@ -68,6 +70,7 @@ public class Fighter : MonoBehaviour
             }
         }
 
+        grabbedOpponent = false;
         if (!player.free)
         {
             TestForHits();
@@ -87,7 +90,17 @@ public class Fighter : MonoBehaviour
             return;
         }
 
-
+        foreach (Grabbox grabbox in grabboxes)
+        {
+            if (grabbox.isActiveAndEnabled && grabbox.target == null)
+            {
+                grabbox.Attack(player);
+            }
+            if (grabbox.target != null)
+            {
+                grabbedOpponent = true;
+            }
+        }
 
         List<Entity> hitEntities = new List<Entity>();
         foreach (Hitbox hitbox in hitboxes)
@@ -102,10 +115,10 @@ public class Fighter : MonoBehaviour
                         hitHitbox = hitbox.hitboxNum;
                         print(entity.gameObject);
                         hitEntities.Add(entity);
-                        entity.HitboxDamage(currentMove.hitboxes[hitbox.hitboxNum], player, player.direction, hitbox.transform.eulerAngles.x);
+                        entity.HitboxDamage(currentMove.hitboxes[hitbox.hitboxNum], player, hitbox.transform.position, player.direction, hitbox.transform.eulerAngles.x);
                         if (!entity.invincible)
                         {
-                            player.hitstop = Mathf.Max(player.hitstop, currentMove.hitboxes[hitbox.hitboxNum].hitstop * currentMove.hitboxes[hitbox.hitboxNum].hitstop);
+                            player.hitstop = Mathf.Max(player.hitstop, currentMove.hitboxes[hitbox.hitboxNum].hitstop * currentMove.hitboxes[hitbox.hitboxNum].attackerHitstopMultiplier);
                             OnHit(currentMove.name);
                             hitAttack = true;
                         }
@@ -132,6 +145,7 @@ public class Fighter : MonoBehaviour
                             foreach (Hitbox hitbox in hitboxes)
                             {
                                 hitbox.currentlyHitThings.Clear();
+                                hitbox.gameObject.SetActive(false);
                             }
                             player.input.attackBuffer = 0;
                             player.input.specialBuffer = 0;
@@ -356,12 +370,20 @@ public class Fighter : MonoBehaviour
         currentMove.animationName = move.name;
         currentMove.input = move.input;
         //currentMove.grounded = move.grounded;
-        if (!move.grounded)
+        if (move.grounded)
+        {
+            currentMove.grounded = true;
+        }
+        else
         {
             currentMove.grounded = false;
         }
         //currentMove.airborne = move.grounded;
-        if (!move.airborne)
+        if (move.airborne)
+        {
+            currentMove.airborne = true;
+        }
+        else
         {
             currentMove.airborne = false;
         }
@@ -379,11 +401,13 @@ public class Fighter : MonoBehaviour
             newHitbox.hitstun = hitbox.hitstun;
             newHitbox.hitstop = hitbox.hitstop;
             newHitbox.attackerHitstopMultiplier = hitbox.attackerHitstopMultiplier;
+            newHitbox.attraction = hitbox.attraction;
             newHitbox.scaledKnockback = hitbox.scaledKnockback;
             newHitbox.unscaledKnockback = hitbox.unscaledKnockback;
             newHitbox.angle = hitbox.angle;
             newHitbox.guaranteeLaunch = hitbox.guaranteeLaunch;
             newHitbox.forwardDependentAngle = hitbox.forwardDependentAngle;
+            newHitbox.directionIndependentAngle = hitbox.directionIndependentAngle;
             newHitbox.type = hitbox.type;
             newHitbox.hitEffect = hitbox.hitEffect;
             nextHitboxes.Add(newHitbox);
@@ -399,6 +423,18 @@ public class Fighter : MonoBehaviour
     public virtual void OnProjectileSpawn(int ID)
     {
 
+    }
+
+    public virtual void InputReverse()
+    {
+        if (player.input.GetLeftStickX() > 0)
+        {
+            player.direction = 1;
+        }
+        else if (player.input.GetLeftStickX() < 0)
+        {
+            player.direction = -1;
+        }
     }
 }
 

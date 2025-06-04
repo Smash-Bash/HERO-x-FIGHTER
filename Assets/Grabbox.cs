@@ -7,13 +7,11 @@ using UnityEngine.Events;
 public class Grabbox : MonoBehaviour
 {
     public PlayerScript player;
+    public Entity target;
     [Min(0)]
     public float radius = 0;
     [Min(0)]
     public float length = 0;
-    [Min(0)]
-    public float damageMultiplier = 1;
-    public List<GameObject> currentlyHitThings;
     private float scale;
     [Header("Animation")]
     public int hitboxNum;
@@ -30,6 +28,14 @@ public class Grabbox : MonoBehaviour
     void Update()
     {
         scale = (transform.lossyScale.x + transform.lossyScale.y + transform.lossyScale.z) / 3;
+
+        if (target != null)
+        {
+            target.hitstun = 0.5f;
+            target.hitstop = 0.5f;
+
+            target.transform.position = transform.position;
+        }
     }
 
     public List<Entity> Attack(Entity owner)
@@ -48,14 +54,15 @@ public class Grabbox : MonoBehaviour
         List<Entity> hitEntities = new List<Entity>();
         foreach (Collider hit in hits)
         {
-            if (!currentlyHitThings.Contains(hit.gameObject))
+            if (target == null)
             {
                 if (hit.GetComponent<Entity>() != null && hit.gameObject != owner.gameObject)
                 {
-                    hitEntities.Add(hit.GetComponent<Entity>());
-                    currentlyHitThings.Add(hit.gameObject);
+                    if (!hit.GetComponent<Entity>().invincible)
+                    {
+                        target = hit.GetComponent<Entity>();
+                    }
                 }
-                //currentlyHitThings.Add(hit.gameObject);
             }
         }
         if (hitEntities.Count > 0)
@@ -85,6 +92,13 @@ public class Grabbox : MonoBehaviour
 
     public void OnDisable()
     {
-        currentlyHitThings.Clear();
+        if (target != null)
+        {
+            target.hitstun = 0f;
+            target.hitstop = 0f;
+
+            target.transform.position = transform.position;
+            target = null;
+        }
     }
 }

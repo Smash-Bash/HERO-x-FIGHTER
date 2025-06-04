@@ -114,6 +114,7 @@ MonoBehaviour:
   maxGravity: 10
   maxDoubleJumps: 1
   hitAttack: 0
+  grabbedOpponent: 0
   displayIcon: {fileID: 21300000, guid: e54de63822ecdbd4c9316e0d9c423e82, type: 3}
   stockIcon: {fileID: 21300000, guid: 03ed0c77cfdf67b4785c0e2e85177d39, type: 3}
   currentMove:
@@ -129,6 +130,7 @@ MonoBehaviour:
   - {fileID: 6346578277731859343}
   - {fileID: 4468126812868446537}
   - {fileID: 5967293903792603802}
+  grabboxes: []
   projectileSpawners: []
   hitEffect: {fileID: 0}
   hitPlayer: 0

@@ -19,6 +19,7 @@ public class PlayerModel : MonoBehaviour
     public bool invincible;
     public bool talking;
     public bool ledgeSnap;
+    public bool suppressControl;
     public MeshRenderer face;
     [Header("Emotions")]
     public Material idle;
@@ -72,6 +73,8 @@ public class PlayerModel : MonoBehaviour
         animator.SetBool("Hitstun", player.hitstun > 0 && !player.free);
         animator.SetBool("AttackDown", player.input.GetAttack());
         animator.SetBool("SpecialDown", player.input.GetSpecial());
+        animator.SetBool("HitAttack", player.fighter.hitAttack);
+        animator.SetBool("HitGrab", player.fighter.grabbedOpponent);
 
         animator.speed = player.hitstop <= 0 ? 1 : 0;
     }

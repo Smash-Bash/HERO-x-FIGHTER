@@ -11,14 +11,15 @@ public class MenuScreen : MonoBehaviour
     [HideInInspector]
     public MainMenu mainMenu;
     public MenuButton defaultButton;
+    public bool allowBacktracking = true;
     public TMP_Text description;
     public bool skipInEventMode;
     public MenuScreen nextMenu;
     public MenuScreen previousMenu;
-    public RawImage background;
     public Scrollbar scrollbar;
     [TextArea(2, 2)]
     public string menuPrompt;
+    public GameObject background;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -35,6 +36,14 @@ public class MenuScreen : MonoBehaviour
             foreach (MenuPlayer player in multiplayer.players)
             {
                 scrollbar.value += Input.GetAxisRaw(player.GetPlayerID() + "Arrow Vertical") * Time.deltaTime * 2.5f;
+            }
+        }
+
+        if (allowBacktracking && previousMenu != null)
+        {
+            if (mainMenu.input.GetSpecialDown())
+            {
+                mainMenu.ChangeMenu(previousMenu.gameObject.name);
             }
         }
     }

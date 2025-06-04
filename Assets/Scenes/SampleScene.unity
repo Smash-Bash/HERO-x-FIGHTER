@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.51161903, g: 0.55900633, b: 0.6246737, a: 1}
+  m_IndirectSpecularColor: {r: 0.8597608, g: 0.8747986, b: 0.8892101, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -846,6 +846,7 @@ MonoBehaviour:
   multiplayer: {fileID: 1477889664}
   camera: {fileID: 963194227}
   size: 5
+  cameraDistance: -10
   cameraShake: {x: 0, y: 0}
   spawnPoint: {x: 0, y: 0, z: 0}
   spawnSize: 0
@@ -1036,6 +1037,10 @@ PrefabInstance:
       value: Game Manager
       objectReference: {fileID: 0}
     - target: {fileID: 9179664207726559258, guid: bca3f51e47f734e42ad81ec9e88c7713, type: 3}
+      propertyPath: stocks
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179664207726559258, guid: bca3f51e47f734e42ad81ec9e88c7713, type: 3}
       propertyPath: gamemode
       value: 1
       objectReference: {fileID: 0}
@@ -1055,10 +1060,6 @@ PrefabInstance:
       propertyPath: cameraScript
       value: 
       objectReference: {fileID: 963194229}
-    - target: {fileID: 9179664207726559258, guid: bca3f51e47f734e42ad81ec9e88c7713, type: 3}
-      propertyPath: defaultFighter
-      value: 
-      objectReference: {fileID: -5864444387263843958, guid: e6afe4192cde55d468db71161bba0f38, type: 3}
     - target: {fileID: 9179664207726559258, guid: bca3f51e47f734e42ad81ec9e88c7713, type: 3}
       propertyPath: activeBlastZones
       value: 1
