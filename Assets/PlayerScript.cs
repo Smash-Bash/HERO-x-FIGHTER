@@ -9,17 +9,17 @@ public class PlayerScript : Entity
     public Fighter fighter;
     public PlayerInput input;
     public Entity opponent;
-    [Range(1, 4)]
+    [Range(1,8)]
     public int playerID;
     [Min(0)]
     public int stocks;
     [Min(0)]
     public float health = 0;
-    public bool grounded;
     public bool unconscious;
     public Vector2 velocity;
     public bool sprinting;
     public int doubleJumps;
+    public int airDodges;
     public bool fastFall = true;
     [Range(-1f, 1f)]
     public int direction;
@@ -56,6 +56,8 @@ public class PlayerScript : Entity
     public HeadsUpDisplay hud;
     public ParticleSystem launchEffect;
     public ParticleSystem victoryEffect;
+    public ParticleSystem airDodgeFlash;
+    public ParticleSystem airDodgeTrail;
     public GameObject blockEffect;
     public GameObject lowBreakEffect;
     public GameObject overheadBreakEffect;
@@ -81,7 +83,6 @@ public class PlayerScript : Entity
         {
             stocks = 1;
         }
-        playerID = Mathf.Clamp(playerID, 1, 4);
     }
 
     // Update is called once per frame
@@ -127,7 +128,7 @@ public class PlayerScript : Entity
             emission.rateOverDistance = 0;
         }
         ParticleSystem.MainModule main = launchEffect.main;
-        main.startColor = multiplayer.colors[playerID - 1];
+        main.startColor = GetColor();
 
         if (!grounded)
         {
@@ -279,10 +280,11 @@ public class PlayerScript : Entity
         landing = model.animator.GetCurrentAnimatorStateInfo(0).IsName("Land");
         gettingUp = model.animator.GetCurrentAnimatorStateInfo(0).IsName("Getup");
         shielding = model.animator.GetCurrentAnimatorStateInfo(0).IsName("Shielding") && hitstun <= 0 && hitstop <= 0 && unactionable <= 0 && !dodging && multiplayer.gamemode == MultiplayerManager.gamemodeType.Platform;
-        dodging = model.animator.GetCurrentAnimatorStateInfo(0).IsName("Dodge");
+        dodging = model.animator.GetCurrentAnimatorStateInfo(0).IsName("Dodge") || model.animator.GetCurrentAnimatorStateInfo(0).IsName("Air Dodge");
 
         float shieldSize = controller.height * shieldAmount;
         shield.transform.localScale = new Vector3(shieldSize, shieldSize, shieldSize);
+        shield.material.SetColor("_Color", GetColor());
         shield.gameObject.SetActive(shielding);
         if (shielding)
         {
@@ -318,7 +320,26 @@ public class PlayerScript : Entity
         landing = model.animator.GetCurrentAnimatorStateInfo(0).IsName("Land");
         gettingUp = model.animator.GetCurrentAnimatorStateInfo(0).IsName("Getup");
         shielding = model.animator.GetCurrentAnimatorStateInfo(0).IsName("Shielding") && hitstun <= 0 && hitstop <= 0 && unactionable <= 0 && !dodging && multiplayer.gamemode == MultiplayerManager.gamemodeType.Platform;
-        dodging = model.animator.GetCurrentAnimatorStateInfo(0).IsName("Dodge");
+        dodging = model.animator.GetCurrentAnimatorStateInfo(0).IsName("Dodge") || model.animator.GetCurrentAnimatorStateInfo(0).IsName("Air Dodge");
+
+        if (model.animator.GetCurrentAnimatorStateInfo(0).IsName("Air Dodge"))
+        {
+            Vector2 dir = velocity * new Vector2(1, 1);
+            if (grounded)
+            {
+                dir.y = 0;
+            }
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            airDodgeTrail.transform.rotation = Quaternion.Euler(0, 0, 0);
+            airDodgeTrail.transform.Rotate(0, 0, angle, Space.World);
+            ParticleSystem.EmissionModule emission = airDodgeTrail.emission;
+            emission.rateOverTime = 100;
+        }
+        else
+        {
+            ParticleSystem.EmissionModule emission = airDodgeTrail.emission;
+            emission.rateOverTime = 0;
+        }
     }
 
     public void DefaultState()
@@ -336,7 +357,8 @@ public class PlayerScript : Entity
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0, Mathf.LerpAngle(transform.eulerAngles.y, (Camera.main.orthographic || free ? model.targetRotation : 90) * direction, Time.deltaTime * 45), 0);
+            //transform.rotation = Quaternion.Euler(0, Mathf.LerpAngle(transform.eulerAngles.y, (Camera.main.orthographic || free ? model.targetRotation : 90) * direction, Time.deltaTime * 45), 0);
+            transform.rotation = Quaternion.Euler(0, Mathf.LerpAngle(transform.eulerAngles.y, model.targetRotation * direction, Time.deltaTime * 45), 0);
         }
 
         if (grounded)
@@ -346,13 +368,14 @@ public class PlayerScript : Entity
                 velocity.y = -2.5f;
             }
             doubleJumps = fighter.maxDoubleJumps;
+            airDodges = fighter.maxAirDodges;
             fastFall = true;
         }
         else
         {
             if (multiplayer.gamemode == MultiplayerManager.gamemodeType.Traditional || !fastFall)
             {
-                velocity.y -= fighter.gravity * Time.deltaTime;
+                velocity.y -= fighter.gravity * Time.deltaTime * model.gravity;
                 if (multiplayer.gamemode == MultiplayerManager.gamemodeType.Traditional)
                 {
                     velocity.y -= fighter.gravity * Time.deltaTime * Mathf.Max(0, -1 + hitCombo);
@@ -360,7 +383,7 @@ public class PlayerScript : Entity
             }
             else
             {
-                velocity.y = Mathf.MoveTowards(velocity.y, fighter.maxGravity * -1, fighter.gravity * Time.deltaTime);
+                velocity.y = Mathf.MoveTowards(velocity.y, fighter.maxGravity * -1, fighter.gravity * Time.deltaTime * model.gravity);
             }
         }
 
@@ -431,7 +454,6 @@ public class PlayerScript : Entity
     {
         if (input.GetLeftStickY() < -0.25f && !model.crouching && grounded && free && !sprinting)
         {
-            velocity.x = 0;
             model.crouching = true;
             model.animator.SetFloat("Crouching", 1);
         }
@@ -442,7 +464,10 @@ public class PlayerScript : Entity
         }
         else
         {
-            velocity.x = Mathf.Lerp(velocity.x, (sprinting ? fighter.runSpeed : fighter.walkSpeed) * input.GetLeftStickX(), Time.deltaTime * (grounded ? fighter.groundedAcceleration : fighter.aerialAcceleration));
+            if (true || (multiplayer.gamemode == MultiplayerManager.gamemodeType.Platform || grounded))
+            {
+                velocity.x = Mathf.Lerp(velocity.x, (sprinting ? fighter.runSpeed : fighter.walkSpeed) * input.GetLeftStickX(), Time.deltaTime * (grounded ? fighter.groundedAcceleration : fighter.aerialAcceleration));
+            }
         }
 
         if (grounded)
@@ -524,50 +549,67 @@ public class PlayerScript : Entity
         if ((input is GamepadInput && input.GetStickFlick()) || ((!shielding || input is KeyboardInput || multiplayer.gamemode == MultiplayerManager.gamemodeType.Traditional) && input.GetLeftStick() != Vector2.zero))
         {
             print("Dodge");
-            if (Mathf.Abs(input.GetLeftStickX()) < 0.25f)
+            if (grounded)
             {
-                model.animator.SetFloat("DodgeDirection", 0);
-                model.animator.Play("Dodge");
-                free = false;
-                shielding = false;
-            }
-            else if (opponent != null)
-            {
-                if ((direction == 1 && input.GetLeftStickX() >= 0f) || (direction == -1 && input.GetLeftStickX() <= 0f))
+                if (Mathf.Abs(input.GetLeftStickX()) < 0.25f)
                 {
-                    model.animator.SetFloat("DodgeDirection", 1);
+                    model.animator.SetFloat("DodgeDirection", 0);
                     model.animator.Play("Dodge");
                     free = false;
                     shielding = false;
                 }
-                else if ((direction == 1 && input.GetLeftStickX() <= 0f) || (direction == -1 && input.GetLeftStickX() >= 0f))
+                else if (opponent != null)
                 {
-                    model.animator.SetFloat("DodgeDirection", -1);
-                    model.animator.Play("Dodge");
-                    free = false;
-                    shielding = false;
-                }
-            }
-            else
-            {
-                model.animator.SetFloat("DodgeDirection", -1);
-                if (input.GetLeftStickX() >= 0)
-                {
-                    direction = -1;
+                    if ((direction == 1 && input.GetLeftStickX() >= 0f) || (direction == -1 && input.GetLeftStickX() <= 0f))
+                    {
+                        model.animator.SetFloat("DodgeDirection", 1);
+                        model.animator.Play("Dodge");
+                        free = false;
+                        shielding = false;
+                    }
+                    else if ((direction == 1 && input.GetLeftStickX() <= 0f) || (direction == -1 && input.GetLeftStickX() >= 0f))
+                    {
+                        model.animator.SetFloat("DodgeDirection", -1);
+                        model.animator.Play("Dodge");
+                        free = false;
+                        shielding = false;
+                    }
                 }
                 else
                 {
-                    direction = 1;
+                    model.animator.SetFloat("DodgeDirection", -1);
+                    if (input.GetLeftStickX() >= 0)
+                    {
+                        direction = -1;
+                    }
+                    else
+                    {
+                        direction = 1;
+                    }
+                    model.animator.Play("Dodge");
+                    free = false;
+                    shielding = false;
                 }
-                model.animator.Play("Dodge");
+                transform.rotation = Quaternion.Euler(0, Mathf.LerpAngle(transform.eulerAngles.y, (Camera.main.orthographic || free ? model.targetRotation : 90) * direction, Time.deltaTime * 45), 0);
+            }
+            else if (airDodges > 0)
+            {
+                airDodges--;
+                model.animator.SetFloat("DodgeDirection", 0);
+                model.animator.Play("Air Dodge");
+                ParticleSystem.MainModule main = airDodgeFlash.main;
+                main.startColor = GetColor();
+                airDodgeFlash.Emit(1);
                 free = false;
                 shielding = false;
+                dodging = true;
+                velocity = input.GetLeftStick() * 10;
+                SetDirection(input.GetLeftStickX());
             }
-            transform.rotation = Quaternion.Euler(0, Mathf.LerpAngle(transform.eulerAngles.y, (Camera.main.orthographic || free ? model.targetRotation : 90) * direction, Time.deltaTime * 45), 0);
         }
     }
 
-    public bool TestForWallJump()
+    public bool TestForWallJump(bool autoWallJump = false)
     {
         bool wallJumped = false;
         int testDirection = direction;
@@ -586,12 +628,13 @@ public class PlayerScript : Entity
             if (Physics.Raycast(transform.position + (Vector3.right * testDirection * 0.5f * controller.radius), Vector3.right * testDirection, 1f, LayerMask.GetMask("Default")))
             {
                 print("true");
-                if (input.GetJumpDown())
+                if (input.GetJumpDown() || autoWallJump)
                 {
                     velocity.x = testDirection * -7.5f;
                     velocity.y = fighter.jumpHeight;
                     direction = testDirection * -1;
                     model.animator.Play("Front Double Jump");
+                    fighter.OnWallJump();
                     wallJumped = true;
                     hasWallJump = false;
                 }
@@ -707,6 +750,12 @@ public class PlayerScript : Entity
         else if (fighter.OnDamage(attacker))
         {
 
+        }
+        else if (fighter.currentMove != null ? model.activeArmour && fighter.currentMove.superArmour > 0 : false)
+        {
+            hitstop = Mathf.Max(hitstop, hitbox.hitstop);
+            fighter.currentMove.superArmour -= hitbox.damage;
+            Damage(hitbox.damage);
         }
         else
         {
@@ -869,13 +918,23 @@ public class PlayerScript : Entity
 
     public void Jump()
     {
-        sprinting = false;
         velocity.x = fighter.walkSpeed * input.GetLeftStickX();
+        if (grounded && sprinting && multiplayer.gamemode == MultiplayerManager.gamemodeType.Traditional)
+        {
+            if (!((input.GetLeftStickX() > 0 && direction == -1) || (input.GetLeftStickX() < 0 && direction == 1)))
+            {
+                velocity.x = fighter.runSpeed * input.GetLeftStickX();
+            }
+        }
+        sprinting = false;
         if (!grounded)
         {
             DoubleJump();
         }
-        velocity.x = Mathf.Clamp(velocity.x, fighter.walkSpeed * -1, fighter.walkSpeed);
+        if (!grounded || multiplayer.gamemode != MultiplayerManager.gamemodeType.Traditional)
+        {
+            velocity.x = Mathf.Clamp(velocity.x, fighter.walkSpeed * -1, fighter.walkSpeed);
+        }
         velocity.y = fighter.jumpHeight;
         grounded = false;
     }
@@ -960,6 +1019,18 @@ public class PlayerScript : Entity
         }
     }
 
+    public void SetDirection(float value)
+    {
+        if (value > 0)
+        {
+            direction = 1;
+        }
+        else if (value < 0)
+        {
+            direction = -1;
+        }
+    }
+
     public bool TestForGround(Vector3 additionalPosition)
     {
         bool value = false;
@@ -986,6 +1057,20 @@ public class PlayerScript : Entity
         return newHitEffect;
     }
 
+    public bool InFront(Vector3 position)
+    {
+        bool inFront = false;
+        if (direction == 1 && transform.position.x < position.x)
+        {
+            inFront = true;
+        }
+        if (direction == -1 && transform.position.x > position.x)
+        {
+            inFront = true;
+        }
+        return inFront;
+    }
+
     public float GetMovementAngle()
     {
         Vector2 dir = velocity * new Vector2(direction, direction);
@@ -995,6 +1080,18 @@ public class PlayerScript : Entity
         }
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         return angle;
+    }
+
+    public Color GetColor()
+    {
+        if (input is ComputerInput)
+        {
+            return Color.grey;
+        }
+        else
+        {
+            return multiplayer.colors[Mathf.Clamp(playerID - 1, 0, 7)];
+        }
     }
 
     public void ResetPlayer()

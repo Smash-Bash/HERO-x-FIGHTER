@@ -20,7 +20,7 @@ public class MainMenuScreen : MenuScreen
 
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Logo") && (mainMenu.input.GetAttackDown() || mainMenu.input.GetSpecialDown() || mainMenu.input.GetJumpDown()))
         {
-            mainMenu.ChangeMenu("Stage Select Screen");
+            mainMenu.ChangeMenu("Player Select Screen");
         }
     }
 }

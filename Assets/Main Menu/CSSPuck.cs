@@ -11,6 +11,9 @@ public class CSSPuck : MonoBehaviour
     public GameObject currentCharacter;
     public Transform characterBase;
     public TMP_Text fighterName;
+    public CSSPlayer player;
+    public Image puckImage;
+    public TMP_Text puckText;
 
     // Start is called before the first frame update
     void Start()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Ruby : Fighter
 {
@@ -93,7 +94,8 @@ public class Ruby : Fighter
 
         if (model.animator.GetCurrentAnimatorStateInfo(0).IsName("Up Special") && !model.animator.GetCurrentAnimatorStateInfo(0).IsName("Wind Launch"))
         {
-            if (Vector3.Distance(transform.position, windBubble.transform.position) < windBubble.transform.localScale.z / 2)
+            player.grounded = false;
+            if (windBubble ? Vector3.Distance(transform.position, windBubble.transform.position) < windBubble.transform.localScale.z / 2 : false)
             {
                 storedWindBubble = true;
             }
@@ -120,6 +122,37 @@ public class Ruby : Fighter
         {
             trailCooldown -= Time.deltaTime;
         }
+    }
+
+    public override bool CustomAI(ComputerInput AI)
+    {
+        bool overrideBehaviour = false;
+
+        if (windBubble == null)
+        {
+            AI.options.Add("Down Special");
+        }
+        //else if (windBubble != null && AI.target != null ? Vector3.Distance(transform.position, windBubble.transform.position) < windBubble.transform.localScale.z / 2 : false)
+        else if (windBubble != null && AI.target != null ? Vector3.Distance(transform.position, windBubble.transform.position) < windBubble.transform.localScale.z / 2 && Vector3.Distance(AI.target.transform.position, windBubble.transform.position) > windBubble.transform.localScale.z / 2 : false)
+        {
+            AI.options.Add("Forward Special");
+            if (!AI.target.grounded || AI.state == ComputerInput.ComputerState.Recovering)
+            {
+                AI.options.Add("Up Special");
+            }
+        }
+
+        if (AI.state != ComputerInput.ComputerState.Recovering && (currentMove != null ? currentMove.name == "Up Special" : false))
+        {
+            AI.leftStick = (AI.target.transform.position - transform.position).normalized;
+
+            if (player.controller.isGrounded)
+            {
+                AI.leftStick.y = Mathf.Max(AI.leftStick.y, 0.25f);
+            }
+        }
+
+        return overrideBehaviour;
     }
 
     public override bool CanSetAttack(string attackName)
@@ -285,5 +318,10 @@ public class Ruby : Fighter
         {
             rightFootTrail.Emit(1);
         }
+    }
+
+    public override void ResetFighter()
+    {
+        hasWindSlash = false;
     }
 }

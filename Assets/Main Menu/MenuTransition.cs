@@ -29,7 +29,10 @@ public class MenuTransition : MonoBehaviour
                 {
                     background.SetActive(false);
                 }
-                to.background.SetActive(true);
+                if (to.background != null)
+                {
+                    to.background.SetActive(true);
+                }
                 from.gameObject.SetActive(false);
                 to.gameObject.SetActive(true);
                 //foreach (MenuPlayer player in menu.multiplayer.allPlayers)

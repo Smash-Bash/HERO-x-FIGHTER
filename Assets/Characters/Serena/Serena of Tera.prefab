@@ -142,6 +142,10 @@ PrefabInstance:
       value: Serena of Tera
       objectReference: {fileID: 0}
     - target: {fileID: 7098804463073752306, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
+      propertyPath: displayIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: e76a13ff07fad644dbab0cb14cd15ad0, type: 3}
+    - target: {fileID: 7098804463073752306, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
       propertyPath: characterName
       value: Serena
       objectReference: {fileID: 0}

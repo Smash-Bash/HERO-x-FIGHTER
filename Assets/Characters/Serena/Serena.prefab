@@ -356,6 +356,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Serena
       objectReference: {fileID: 0}
+    - target: {fileID: 3939696661079048365, guid: bd29e18bbfe1ebb44bac2d7bd175ce03, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bca1040a99cec14b9e8a1b14a544b3f, type: 2}
     - target: {fileID: 4199744158006031360, guid: bd29e18bbfe1ebb44bac2d7bd175ce03, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -412,6 +416,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f41bd9d1f7e6376439f011f13a94287c, type: 2}
+    - target: {fileID: 7774940041656418168, guid: bd29e18bbfe1ebb44bac2d7bd175ce03, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bca1040a99cec14b9e8a1b14a544b3f, type: 2}
     - target: {fileID: 8589977731756073689, guid: bd29e18bbfe1ebb44bac2d7bd175ce03, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 

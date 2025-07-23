@@ -6,6 +6,8 @@ public class CSSPlayer : MonoBehaviour
 {
     public MenuCharacterSelect characterSelect;
     public PlayerInput input;
+    public int playerID;
+    public bool computerPlayer;
     public GameObject defaultCursor;
     public GameObject highlightedCursor;
     public GameObject grabbingCursor;
@@ -55,7 +57,7 @@ public class CSSPlayer : MonoBehaviour
                 highlightedCursor.SetActive(true);
                 grabbingCursor.SetActive(false);
 
-                if (input.GetAttackDown() && closestPuck == puck)
+                if (input.GetAttackDown() && (closestPuck == puck || closestPuck.player.computerPlayer))
                 {
                     selectedPuck = closestPuck;
                 }

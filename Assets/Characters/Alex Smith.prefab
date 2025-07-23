@@ -124,6 +124,13 @@ MonoBehaviour:
   hitPlayer: 0
   hitHitbox: 0
   hasBounce: 0
+  hasUpTilt: 0
+  hasSideSpecial: 0
+  magicCharge: 0
+  auraObject: {fileID: 8243033373314599057}
+  regularTrail: {fileID: 612791551878096428}
+  auraTrail: {fileID: 5426450030515293085}
+  explosionPrefab: {fileID: 4173908624909887849, guid: 67e0d4db265f3c340a2d454fff439bb6, type: 3}
 --- !u!114 &4116316492388305199 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4441606567463861040, guid: 1219a0ea100be824f9f1c0468af1e273, type: 3}
@@ -196,11 +203,76 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1457998265919019922}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1457998265919019922}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MagicCharge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExplosionJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Alex, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Alex, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997567233714718913, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+      propertyPath: events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+--- !u!1 &612791551878096428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5654635844628921510, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+  m_PrefabInstance: {fileID: 5113942913457445514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &634000495097740735 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5635186120304699189, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
@@ -234,6 +306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f01de1710b34149be4d0bcfd0ff5c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5426450030515293085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 988188761865343255, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+  m_PrefabInstance: {fileID: 5113942913457445514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7130917300683376847 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2598089337957143109, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
@@ -248,6 +325,11 @@ MonoBehaviour:
 --- !u!4 &7889857496712316778 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3136256224563846624, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
+  m_PrefabInstance: {fileID: 5113942913457445514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8243033373314599057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3791323702136312347, guid: 7cf7dd42cb434634da5847ec92334c9a, type: 3}
   m_PrefabInstance: {fileID: 5113942913457445514}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &9116615488028485008 stripped

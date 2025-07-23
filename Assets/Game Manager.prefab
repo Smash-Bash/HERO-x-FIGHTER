@@ -623,6 +623,10 @@ MonoBehaviour:
   - {r: 0, g: 0.49019608, b: 1, a: 1}
   - {r: 1, g: 0.88235295, b: 0, a: 1}
   - {r: 0, g: 0.78431374, b: 0, a: 1}
+  - {r: 1, g: 0.49019608, b: 0, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
+  - {r: 0.19607843, g: 0.19607843, b: 0.39215687, a: 1}
   cameraScript: {fileID: 0}
   cutscenes: {fileID: 0}
   blastZone: {x: 25, y: 15}
@@ -660,7 +664,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b5fbdff27e3bb384ab94b284d15bbef2, type: 3}
   - {fileID: 21300000, guid: de79af28d605ef040a1e7c7ba19bfb6e, type: 3}
   - {fileID: 21300000, guid: f9074ee61807bfb41a0170371804474c, type: 3}
-  defaultFighter: {fileID: 1457998265919019922, guid: 23edcfdffb590b945b0e1c9d7cc384a4, type: 3}
+  defaultFighter: {fileID: 8558157793567953737, guid: 4d904ab0e71b2eb428a7102b447a0eb7, type: 3}
   fighterCatalogue: {fileID: 11400000, guid: 428d137dfe010ab4380fdfbb4eb0c530, type: 2}
 --- !u!223 &7887416156078700722
 Canvas:

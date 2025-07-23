@@ -82,10 +82,31 @@ public class MultiplayerManager : MonoBehaviour
     {
         if (GameSystems.fighters == null || GameSystems.fighters.Count == 0)
         {
-            GameSystems.fighters.Add(defaultFighter);
-            GameSystems.inputIDs.Add(0);
-            GameSystems.fighters.Add(defaultFighter);
-            GameSystems.inputIDs.Add(1);
+            if (false)
+            {
+                //GameSystems.fighters.Add(defaultFighter);
+                //GameSystems.inputIDs.Add(0);
+                //GameSystems.fighters.Add(defaultFighter);
+                //GameSystems.inputIDs.Add(1);
+            }
+            else if (true)
+            {
+                GameSystems.fighters.Add(fighterCatalogue.fighters[1]);
+                GameSystems.inputIDs.Add(-1);
+                GameSystems.fighters.Add(fighterCatalogue.fighters[3]);
+                GameSystems.inputIDs.Add(-1);
+                GameSystems.fighters.Add(fighterCatalogue.fighters[2]);
+                GameSystems.inputIDs.Add(-1);
+                GameSystems.fighters.Add(fighterCatalogue.fighters[0]);
+                GameSystems.inputIDs.Add(-1);
+            }
+            else if (false)
+            {
+                GameSystems.fighters.Add(fighterCatalogue.fighters[0]);
+                GameSystems.inputIDs.Add(0);
+                GameSystems.fighters.Add(fighterCatalogue.fighters[3]);
+                GameSystems.inputIDs.Add(-1);
+            }
         }
         List<PlayerScript> newPlayers = new List<PlayerScript>();
         if (GameSystems.fighters.Count > 0)
@@ -103,7 +124,11 @@ public class MultiplayerManager : MonoBehaviour
                     newFighter = GameObject.Instantiate(fighter.gameObject, Vector3.zero, transform.rotation).GetComponent<Fighter>();
                 }
                 newFighter.player = newFighter.GetComponent<PlayerScript>();
-                if (GameSystems.inputIDs[index] == 0)
+                if (GameSystems.inputIDs[index] == -1)
+                {
+                    newFighter.player.input = newFighter.gameObject.AddComponent<ComputerInput>();
+                }
+                else if (GameSystems.inputIDs[index] == 0)
                 {
                     newFighter.player.input = newFighter.gameObject.AddComponent<KeyboardInput>();
                 }
@@ -172,6 +197,14 @@ public class MultiplayerManager : MonoBehaviour
                 {
                     player.hud = Instantiate(platformHUDPrefab, platformHUDDisplays).GetComponent<HeadsUpDisplay>();
                     player.hud.player = player;
+                }
+                else
+                {
+                    float scale = Mathf.Abs(1f - ((Mathf.Max(players.Length + (players.Length > 4 ? 1 : 0), 4f) - 4f) / 8));
+                    //platformHUDDisplays.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 100 * scale, 0);
+                    player.hud.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 450 * scale);
+                    player.hud.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 250 * scale);
+                    player.hud.GetComponent<RectTransform>().localScale = new Vector3(scale, scale, scale);
                 }
                 index++;
             }

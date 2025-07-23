@@ -8,6 +8,21 @@ using UnityEngine.Serialization;
 public class Moveset : ScriptableObject
 {
     public Move[] moves;
+
+    [Header("AI")]
+    public string[] closeGroundOptions;
+    public string[] mediumGroundOptions;
+    public string[] longGroundOptions;
+    public string[] farGroundOptions;
+    public string[] closeAirOptions;
+    public string[] mediumAirOptions;
+    public string[] longAirOptions;
+    public string[] farAirOptions;
+    public string[] antiAirOptions;
+    public string[] antiGroundOptions;
+    public string[] followupOptions;
+    public string[] lowRecoveryOptions;
+    public string[] highRecoveryOptions;
 }
 
 [System.Serializable]
@@ -18,6 +33,7 @@ public class Move
     public string input;
     public bool grounded = true;
     public bool airborne = true;
+    public float superArmour;
     public string[] nextMoves;
     public HitboxInfo[] hitboxes;
 }

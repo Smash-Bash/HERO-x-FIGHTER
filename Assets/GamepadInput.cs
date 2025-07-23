@@ -16,8 +16,11 @@ public class GamepadInput : PlayerInput
     public int altShieldButton = 5;
     public int startButton = 7;
     public bool leftStickFlick;
+    public bool rightStickFlick;
     private float leftStickFlickTime;
+    private float rightStickFlickTime;
     public Vector2 leftStickLerp;
+    public Vector2 rightStickLerp;
 
     // Start is called before the first frame update
     public override void Start()
@@ -38,11 +41,26 @@ public class GamepadInput : PlayerInput
             leftStickFlickTime -= Time.deltaTime;
         }
         leftStickLerp = Vector2.Lerp(leftStickLerp, new Vector2(Input.GetAxisRaw(gamepadID + " Horizontal"), Input.GetAxisRaw(gamepadID + " Vertical")), Time.deltaTime * 10);
+
+        if (Vector2.Distance(new Vector2(Input.GetAxisRaw(gamepadID + " RS Horizontal"), Input.GetAxisRaw(gamepadID + " RS Vertical")), rightStickLerp) > 0.75f)
+        {
+            rightStickFlickTime = 0.1f;
+        }
+        else
+        {
+            rightStickFlickTime -= Time.deltaTime;
+        }
+        rightStickLerp = Vector2.Lerp(rightStickLerp, new Vector2(Input.GetAxisRaw(gamepadID + " RS Horizontal"), Input.GetAxisRaw(gamepadID + " RS Vertical")), Time.deltaTime * 10);
     }
 
     public override bool GetStickFlick()
     {
         return isActiveAndEnabled && (new Vector2(Input.GetAxisRaw(gamepadID + " Horizontal"), Input.GetAxisRaw(gamepadID + " Vertical")).magnitude >= 0.9f && leftStickFlickTime > 0);
+    }
+
+    public override bool GetRightStickFlick()
+    {
+        return isActiveAndEnabled && (new Vector2(Input.GetAxisRaw(gamepadID + " RS Horizontal"), Input.GetAxisRaw(gamepadID + " RS Vertical")).magnitude >= 0.9f && rightStickFlickTime > 0);
     }
 
     public override Vector2 GetLeftStick()

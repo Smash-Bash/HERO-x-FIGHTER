@@ -44,7 +44,7 @@ public class FutureRuby : Fighter
 
     public void LateUpdate()
     {
-        if (kineticLeap && !player.model.animator.GetCurrentAnimatorStateInfo(0).IsName("Side Special"))
+        if (kineticLeap && !player.model.animator.GetCurrentAnimatorStateInfo(0).IsName("Forward Special"))
         {
             glowL.SetActive(true);
             glowR.SetActive(true);

@@ -66302,6 +66302,8 @@ MonoBehaviour:
   overrideXVelocity: 0
   overrideYVelocity: 0
   alignToVelocity: 0
+  gravity: 1
+  activeArmour: 0
   invincible: 0
   talking: 0
   ledgeSnap: 0

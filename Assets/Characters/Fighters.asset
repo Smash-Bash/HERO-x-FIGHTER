@@ -14,9 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fighters:
   - {fileID: 1457998265919019922, guid: 23edcfdffb590b945b0e1c9d7cc384a4, type: 3}
-  - {fileID: 7397803902901080439, guid: 21f90aa517e12904eacb48da63ca02e6, type: 3}
   - {fileID: -5864444387263843958, guid: e6afe4192cde55d468db71161bba0f38, type: 3}
   - {fileID: 4707811044311448311, guid: 162be1fc9a8f15b43893db23550cf086, type: 3}
-  - {fileID: 7098804463073752306, guid: 4a3fccf1130b2c64c95b5e77a8e40e32, type: 3}
   - {fileID: 8928604390619660199, guid: e75ee582be01b274b8fd1cf3785d2416, type: 3}
-  - {fileID: 899971567284060675, guid: 436601c95c47a074eba8cdebbdc2c5c1, type: 3}

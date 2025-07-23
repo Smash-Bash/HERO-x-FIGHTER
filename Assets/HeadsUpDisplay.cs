@@ -108,7 +108,7 @@ public class HeadsUpDisplay : MonoBehaviour
 
         foreach (Image currentImage in coloredImages)
         {
-            currentImage.color = new Color(player.multiplayer.colors[Mathf.Clamp(player.playerID - 1, 0, 3)].r, player.multiplayer.colors[Mathf.Clamp(player.playerID - 1, 0, 3)].g, player.multiplayer.colors[Mathf.Clamp(player.playerID - 1, 0, 3)].b, currentImage.color.a);
+            currentImage.color = new Color(player.GetColor().r, player.GetColor().g, player.GetColor().b, currentImage.color.a);
         }
 
         if (stockDisplay != null)

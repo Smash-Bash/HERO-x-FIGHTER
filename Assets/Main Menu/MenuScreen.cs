@@ -12,6 +12,7 @@ public class MenuScreen : MonoBehaviour
     public MainMenu mainMenu;
     public MenuButton defaultButton;
     public bool allowBacktracking = true;
+    public Image backtrackWheel;
     public TMP_Text description;
     public bool skipInEventMode;
     public MenuScreen nextMenu;
@@ -26,6 +27,11 @@ public class MenuScreen : MonoBehaviour
     {
         multiplayer = FindFirstObjectByType<MenuMultiplayerManager>();
         mainMenu = FindFirstObjectByType<MainMenu>();
+
+        if (backtrackWheel != null)
+        {
+            backtrackWheel.fillAmount = 0;
+        }
     }
 
     // Update is called once per frame
@@ -39,11 +45,27 @@ public class MenuScreen : MonoBehaviour
             }
         }
 
-        if (allowBacktracking && previousMenu != null)
+        if (backtrackWheel != null)
         {
-            if (mainMenu.input.GetSpecialDown())
+            if (mainMenu.input.GetSpecial())
+            {
+                backtrackWheel.fillAmount = Mathf.MoveTowards(backtrackWheel.fillAmount, 1, Time.deltaTime * 0.5f);
+            }
+            else
+            {
+                backtrackWheel.fillAmount = Mathf.MoveTowards(backtrackWheel.fillAmount, 0, Time.deltaTime * 0.5f);
+            }
+        }
+
+        if (allowBacktracking && previousMenu != null && (backtrackWheel ? backtrackWheel.fillAmount >= 1 : true))
+        {
+            if (mainMenu.input.GetSpecialDown() || backtrackWheel.fillAmount >= 1)
             {
                 mainMenu.ChangeMenu(previousMenu.gameObject.name);
+                if (backtrackWheel != null)
+                {
+                    backtrackWheel.fillAmount = 0;
+                }
             }
         }
     }

@@ -20,6 +20,7 @@ public class Fighter : MonoBehaviour
     public float gravity = 25f;
     public float maxGravity = 10f;
     public int maxDoubleJumps = 1;
+    public int maxAirDodges = 1;
 
     [Header("Runtime")]
     public bool hitAttack;
@@ -83,6 +84,11 @@ public class Fighter : MonoBehaviour
         GetAttack();
     }
 
+    public virtual bool CustomAI(ComputerInput AI)
+    {
+        return false;
+    }
+
     public void TestForHits()
     {
         if (currentMove == null)
@@ -132,13 +138,13 @@ public class Fighter : MonoBehaviour
     public virtual void SetAttack(string attackName, bool followup = false)
     {
         player.sprinting = false;
-        if (followup)
+        if (followup && attackName != "" && attackName != null)
         {
             foreach (Move move in moveset.moves)
             {
                 if (currentMove.nextMoves.Contains(move.name) || (currentMove.nextMoves.Contains("Aerials") && move.name.Contains("Air")))
                 {
-                    if (attackName == move.input)
+                    if (attackName == move.input || attackName == move.name)
                     {
                         if (CanSetAttack(attackName))
                         {
@@ -151,6 +157,7 @@ public class Fighter : MonoBehaviour
                             player.input.specialBuffer = 0;
                             player.launched = false;
                             hitAttack = false;
+                            model.allowFollowup = false;
                             if (currentMove.name == move.name)
                             {
                                 model.animator.SetTrigger("DoItAgain");
@@ -178,7 +185,7 @@ public class Fighter : MonoBehaviour
                 }
             }
         }
-        else
+        else if (attackName != "" && attackName != null)
         {
             foreach (Move move in moveset.moves)
             {
@@ -236,17 +243,20 @@ public class Fighter : MonoBehaviour
         {
             input = leftStick;
         }
-        direction = GetDirection(input, player);
+        direction = GetCardinalDirection(input, player);
         if (followup && player.grounded)
         {
-            if (player.input.GetStickFlick() && Mathf.Abs(input.x) > 0.25f)
+            if (!rightStickInput)
             {
-                player.model.animator.Play("Grounded");
-                if (player.input.GetLeftStickX() * Mathf.Infinity != player.direction * Mathf.NegativeInfinity)
+                if (player.input.GetStickFlick() && Mathf.Abs(input.x) > 0.25f)
                 {
-                    player.velocity.x = player.fighter.runSpeed * input.x;
+                    player.model.animator.Play("Grounded");
+                    if (player.input.GetLeftStickX() * Mathf.Infinity != player.direction * Mathf.NegativeInfinity)
+                    {
+                        player.velocity.x = player.fighter.runSpeed * input.x;
+                    }
+                    player.sprinting = true;
                 }
-                player.sprinting = true;
             }
 
             if (player.input.GetJumpDown())
@@ -276,6 +286,10 @@ public class Fighter : MonoBehaviour
         {
             if (player.grounded)
             {
+                if (direction == 4)
+                {
+                    player.direction *= -1;
+                }
                 SetAttack("G" + direction + "A", followup);
             }
             else
@@ -285,7 +299,12 @@ public class Fighter : MonoBehaviour
         }
         else if (player.input.GetSpecialDown())
         {
-            if (input.x > 0.25f)
+            print(direction);
+            if (player.multiplayer.gamemode == MultiplayerManager.gamemodeType.Traditional && direction == 4)
+            {
+                direction = 8;
+            }
+            else if (input.x > 0.25f)
             {
                 player.direction = 1;
                 direction = GetDirection(input, player);
@@ -304,7 +323,11 @@ public class Fighter : MonoBehaviour
         int direction = 5;
         input.x = Mathf.MoveTowards(input.x * player.direction, 0, 0.1f);
         input.y = Mathf.MoveTowards(input.y, 0, 0.1f);
-        if (input.x < -0.25f && input.y < -0.25f)
+        if (Mathf.Abs(input.x) < 0.25f && Mathf.Abs(input.y) < 0.25f)
+        {
+            direction = 5;
+        }
+        else if (input.x < -0.25f && input.y < -0.25f)
         {
             direction = 2;
         }
@@ -319,10 +342,6 @@ public class Fighter : MonoBehaviour
         else if (input.x < -0.25f && Mathf.Abs(input.y) < 0.25f)
         {
             direction = 4;
-        }
-        else if (Mathf.Abs(input.x) < 0.25f && Mathf.Abs(input.y) < 0.25f)
-        {
-            direction = 5;
         }
         else if (input.x > 0.25f && Mathf.Abs(input.y) < 0.25f)
         {
@@ -343,6 +362,34 @@ public class Fighter : MonoBehaviour
         return direction;
     }
 
+    int GetCardinalDirection(Vector2 input, PlayerScript player)
+    {
+        int direction = 5;
+        input.x = Mathf.MoveTowards(input.x * player.direction, 0, 0.1f);
+        input.y = Mathf.MoveTowards(input.y, 0, 0.1f);
+        if (Mathf.Abs(input.x) < 0.1f && Mathf.Abs(input.y) < 0.1)
+        {
+            direction = 5;
+        }
+        else if (input.y <= Mathf.Abs(input.x) * -1)
+        {
+            direction = 2;
+        }
+        else if (input.y >= Mathf.Abs(input.x))
+        {
+            direction = 8;
+        }
+        else if (input.x <= Mathf.Abs(input.y) * -1)
+        {
+            direction = 4;
+        }
+        else if (input.x >= Mathf.Abs(input.y))
+        {
+            direction = 6;
+        }
+        return direction;
+    }
+
     public virtual void OnHit(string moveName)
     {
 
@@ -353,6 +400,16 @@ public class Fighter : MonoBehaviour
         bool cancel = false;
 
         return cancel;
+    }
+
+    public virtual void OnDamageRecieved(float damage)
+    {
+
+    }
+
+    public virtual void OnDamageDealt(float damage)
+    {
+
     }
 
     public virtual void OnSetAttack()
@@ -387,6 +444,8 @@ public class Fighter : MonoBehaviour
         {
             currentMove.airborne = false;
         }
+        print(move.superArmour);
+        currentMove.superArmour = move.superArmour;
         List<string> nextMoves = new List<string>();
         foreach (string newMove in move.nextMoves)
         {
@@ -435,6 +494,11 @@ public class Fighter : MonoBehaviour
         {
             player.direction = -1;
         }
+    }
+
+    public virtual void OnWallJump()
+    {
+
     }
 }
 

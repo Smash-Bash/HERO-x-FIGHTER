@@ -104,13 +104,14 @@ MonoBehaviour:
   hitAttack: 0
   grabbedOpponent: 0
   displayIcon: {fileID: 21300000, guid: a3067905e3264ae438ce9c46b96a6deb, type: 3}
-  stockIcon: {fileID: 21300000, guid: ef48d189b02c53247b4fd7b04ac663d6, type: 3}
+  stockIcon: {fileID: 21300000, guid: 39ff0cb3c03e9fa47b127874c00e0a02, type: 3}
   currentMove:
     name: 
     animationName: 
     input: 
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes: []
   hitboxes:

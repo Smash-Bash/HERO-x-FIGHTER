@@ -196,6 +196,7 @@ MonoBehaviour:
   gravity: 25
   maxGravity: 10
   maxDoubleJumps: 1
+  maxAirDodges: 1
   hitAttack: 0
   grabbedOpponent: 0
   displayIcon: {fileID: 21300000, guid: 4ee93476a763e8543b4d93a7e1a0b30a, type: 3}
@@ -206,6 +207,7 @@ MonoBehaviour:
     input: 
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes: []
   hitboxes: []

@@ -52,6 +52,7 @@ public class Helias : Fighter
 
             if (player.input.GetShield())
             {
+                player.airDodges = Mathf.Max(player.airDodges, 1);
                 player.TestForDodge();
             }
         }
@@ -69,6 +70,51 @@ public class Helias : Fighter
         {
             model.animator.Play("Down Special Cancel");
             player.input.specialBuffer = 0;
+        }
+    }
+
+    public override bool CustomAI(ComputerInput AI)
+    {
+        bool overrideBehaviour = false;
+
+        if ((AI.state != ComputerInput.ComputerState.Recovering || transform.position.y > -2) && model.animator.GetCurrentAnimatorStateInfo(0).IsName("Up Special"))
+        {
+            AI.overrideSpecial = Vector3.Distance(transform.position, AI.target.transform.position) > 2.5f;
+        }
+        else if (AI.state != ComputerInput.ComputerState.Recovering && model.animator.GetCurrentAnimatorStateInfo(0).IsName("Solar Judgement Charge"))
+        {
+            AI.overrideSpecial = true;
+            overrideBehaviour = true;
+            AI.leftStick = new Vector2(Random.Range(-1, 1), 0);
+            if ((!player.InFront(AI.target.transform.position) && Vector3.Distance(transform.position, AI.target.transform.position) < 7.5f) || Vector3.Distance(transform.position, AI.target.transform.position) < 2.5f)
+            {
+                AI.overrideShield = true;
+                player.TestForDodge();
+            }
+            else if (solarJudgementCharge >= 1)
+            {
+                AI.overrideSpecial = true;
+                RaycastHit[] hits = Physics.SphereCastAll(transform.position, 2, new Vector3(player.direction, -1, 0), 10, LayerMask.GetMask("Player"));
+                foreach (RaycastHit hit in hits)
+                {
+                    if (hit.collider.GetComponent<PlayerScript>() != null && hit.collider.GetComponent<PlayerScript>() != player)
+                    {
+                        AI.overrideSpecial = false;
+                    }
+                }
+            }
+        }
+
+        return overrideBehaviour;
+    }
+
+    public override void OnDamageRecieved(float damage)
+    {
+        base.OnDamageDealt(damage);
+
+        if (solarJudgementCharge < 0.5)
+        {
+            solarJudgementCharge = Mathf.MoveTowards(solarJudgementCharge, 0.5f, damage / 100);
         }
     }
 
@@ -108,5 +154,10 @@ public class Helias : Fighter
             LightningBlast newBlast = GameObject.Instantiate(lightningPrefab);
             newBlast.SetPositions(leftHand.transform.position, transform.position + new Vector3(player.direction * 25, 0, 0));
         }
+    }
+
+    public override void ResetFighter()
+    {
+        solarJudgementCharge = 0;
     }
 }

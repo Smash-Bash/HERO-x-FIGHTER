@@ -18,13 +18,14 @@ MonoBehaviour:
     input: G5A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves:
     - Jab 2
     - Forward Tilt
     - Up Tilt
     hitboxes:
     - damage: 3
-      hitstun: 0.25
+      hitstun: 0.375
       hitstop: 0.025
       attraction: 0
       attackerHitstopMultiplier: 1
@@ -41,6 +42,7 @@ MonoBehaviour:
     input: G5A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves:
     - Forward Tilt
     - Up Tilt
@@ -64,6 +66,7 @@ MonoBehaviour:
     input: G6A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 6
@@ -83,11 +86,12 @@ MonoBehaviour:
     animationName: Up Tilt
     input: G8A
     grounded: 1
-    airborne: 1
+    airborne: 0
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 7
-      hitstun: 0.875
+      hitstun: 0.5
       hitstop: 0.1
       attraction: 0
       attackerHitstopMultiplier: 1
@@ -104,6 +108,7 @@ MonoBehaviour:
     input: G2A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves:
     - Down Tilt
     - Jab 1
@@ -127,6 +132,7 @@ MonoBehaviour:
     input: A5A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 2
@@ -147,6 +153,7 @@ MonoBehaviour:
     input: A6A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 8
@@ -156,7 +163,7 @@ MonoBehaviour:
       attackerHitstopMultiplier: 1
       scaledKnockback: 15
       unscaledKnockback: 12.5
-      angle: 45
+      angle: 22.5
       guaranteeLaunch: 0
       forwardDependentAngle: 0
       directionIndependentAngle: 0
@@ -167,6 +174,7 @@ MonoBehaviour:
     input: G4A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 6
@@ -187,6 +195,7 @@ MonoBehaviour:
     input: A8A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves:
     - Neutral Air
     - Forward Air
@@ -210,6 +219,7 @@ MonoBehaviour:
     input: A4A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 8
@@ -230,8 +240,10 @@ MonoBehaviour:
     input: A2A
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves:
     - Aerials
+    - Up Special
     hitboxes:
     - damage: 2
       hitstun: 0.1
@@ -251,17 +263,17 @@ MonoBehaviour:
     input: 5B
     grounded: 1
     airborne: 1
-    nextMoves:
-    - Neutral Special
+    superArmour: 0
+    nextMoves: []
     hitboxes:
-    - damage: 10
+    - damage: 15
       hitstun: 0.5
       hitstop: 0.25
       attraction: 0
       attackerHitstopMultiplier: 1
-      scaledKnockback: 5
-      unscaledKnockback: 10
-      angle: -30
+      scaledKnockback: 30
+      unscaledKnockback: 20
+      angle: 30
       guaranteeLaunch: 0
       forwardDependentAngle: 0
       directionIndependentAngle: 0
@@ -272,8 +284,10 @@ MonoBehaviour:
     input: 6B
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves:
     - Aerials
+    - Up Special
     hitboxes:
     - damage: 2
       hitstun: 0.1
@@ -293,8 +307,23 @@ MonoBehaviour:
     input: 8B
     grounded: 1
     airborne: 1
-    nextMoves: []
+    superArmour: 0
+    nextMoves:
+    - Aerials
     hitboxes:
+    - damage: 2
+      hitstun: 0.1
+      hitstop: 0.01
+      attraction: 0
+      attackerHitstopMultiplier: 1
+      scaledKnockback: 0
+      unscaledKnockback: 15
+      angle: 75
+      guaranteeLaunch: 1
+      forwardDependentAngle: 0
+      directionIndependentAngle: 0
+      type: 0
+      hitEffect: {fileID: 0}
     - damage: 15
       hitstun: 1
       hitstop: 0.1
@@ -313,18 +342,19 @@ MonoBehaviour:
     input: 2B
     grounded: 1
     airborne: 1
+    superArmour: 20
     nextMoves: []
     hitboxes:
-    - damage: 7.5
+    - damage: 12.5
       hitstun: 0.5
       hitstop: 0.1
       attraction: 0
       attackerHitstopMultiplier: 1
-      scaledKnockback: 7.5
+      scaledKnockback: 10
       unscaledKnockback: 15
-      angle: 0
-      guaranteeLaunch: 1
-      forwardDependentAngle: 1
+      angle: 30
+      guaranteeLaunch: 0
+      forwardDependentAngle: 0
       directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 738131455022530534, guid: 5d4dbb55a887ac648b16b38c81eb6ec8, type: 3}
@@ -341,3 +371,40 @@ MonoBehaviour:
       directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 3269442930348277615, guid: d25cdc23de90ec0499c44bf3b505fff5, type: 3}
+  closeGroundOptions:
+  - Jab 1
+  - Neutral Air
+  mediumGroundOptions:
+  - Up Tilt
+  - Forward Tilt
+  - Down Tilt
+  - Forward Air
+  - Down Special
+  longGroundOptions:
+  - Neutral Special
+  - Forward Special
+  farGroundOptions:
+  - Forward Special
+  closeAirOptions:
+  - Neutral Air
+  - Up Air
+  - Down Air
+  mediumAirOptions:
+  - Forward Air
+  longAirOptions:
+  - Forward Special
+  farAirOptions: []
+  antiAirOptions:
+  - Up Tilt
+  - Up Air
+  antiGroundOptions:
+  - Down Air
+  followupOptions:
+  - Jab 2
+  - Up Special
+  lowRecoveryOptions:
+  - Up Special
+  - Up Tilt
+  highRecoveryOptions:
+  - Side Special
+  - Up Tilt

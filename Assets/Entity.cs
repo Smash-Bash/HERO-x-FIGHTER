@@ -6,6 +6,7 @@ public class Entity : MonoBehaviour
 {
     [Header("Combat")]
     public float damage;
+    public bool grounded;
     [Tooltip("The stun period after being hit by an enemy attack.")]
     public float hitstun;
     [Tooltip("The freeze period after hitting, or being hit by an enemy.")]
@@ -42,9 +43,12 @@ public class Entity : MonoBehaviour
 
     public virtual void LateUpdate()
     {
-        hitstun -= Time.deltaTime;
+        if (hitstop <= 0)
+        {
+            hitstun -= Time.deltaTime;
+            unactionable -= Time.deltaTime + (Time.deltaTime * hitCombo);
+        }
         hitstop -= Time.deltaTime;
-        unactionable -= Time.deltaTime + (Time.deltaTime * hitCombo);
     }
 
     public virtual void Damage(float damageValue)
@@ -74,6 +78,15 @@ public class Entity : MonoBehaviour
         killer = attacker;
         
         Damage(hitbox.damage);
+
+        if (gameObject.GetComponent<PlayerScript>() != null)
+        {
+            gameObject.GetComponent<PlayerScript>().fighter.OnDamageRecieved(hitbox.damage);
+        }
+        if (attacker.GetComponent<PlayerScript>() != null)
+        {
+            attacker.GetComponent<PlayerScript>().fighter.OnDamageDealt(hitbox.damage);
+        }
 
         if (multiplayer.gamemode == MultiplayerManager.gamemodeType.Platform)
         {

@@ -18,20 +18,21 @@ MonoBehaviour:
     input: G5A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves:
     - Jab 2
-    - Forward Tilt
-    - Up Tilt
     hitboxes:
     - damage: 3
       hitstun: 0.25
       hitstop: 0.05
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 2.5
       angle: 0
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
   - name: Jab 2
@@ -39,6 +40,7 @@ MonoBehaviour:
     input: G5A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves:
     - Forward Tilt
     - Up Tilt
@@ -47,12 +49,14 @@ MonoBehaviour:
     - damage: 3
       hitstun: 0.25
       hitstop: 0.05
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 2.5
       angle: 0
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
   - name: Forward Tilt
@@ -60,17 +64,20 @@ MonoBehaviour:
     input: G6A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 6
       hitstun: 0.3
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 20
       unscaledKnockback: 5
       angle: 45
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 0}
   - name: Up Tilt
@@ -78,6 +85,7 @@ MonoBehaviour:
     input: G8A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves:
     - Neutral Air
     - Forward Air
@@ -87,12 +95,14 @@ MonoBehaviour:
     - damage: 5
       hitstun: 0.5
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 7.5
       unscaledKnockback: 7.5
       angle: 90
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 1
       hitEffect: {fileID: 0}
   - name: Down Tilt
@@ -100,6 +110,7 @@ MonoBehaviour:
     input: G2A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves:
     - Down Tilt
     - Jab 1
@@ -108,12 +119,14 @@ MonoBehaviour:
     - damage: 4
       hitstun: 0.25
       hitstop: 0.025
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 5
       unscaledKnockback: 5
       angle: 0
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 1
       hitEffect: {fileID: 0}
   - name: Neutral Air
@@ -121,28 +134,33 @@ MonoBehaviour:
     input: A5A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 5
       hitstun: 0.25
       hitstop: 0.05
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 5
       unscaledKnockback: 10
       angle: 30
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
     - damage: 2
       hitstun: 0.1
       hitstop: 0.05
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 2.5
       unscaledKnockback: 5
       angle: 45
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
   - name: Forward Air
@@ -150,28 +168,33 @@ MonoBehaviour:
     input: A6A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 6
       hitstun: 0.25
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 20
       unscaledKnockback: 10
       angle: 30
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 0}
     - damage: 8
       hitstun: 0.25
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 20
       unscaledKnockback: 20
       angle: -45
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 3269442930348277615, guid: d25cdc23de90ec0499c44bf3b505fff5, type: 3}
   - name: Back Tilt
@@ -179,17 +202,20 @@ MonoBehaviour:
     input: G4A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 6
       hitstun: 0.3
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 20
       unscaledKnockback: 5
       angle: 30
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 0}
   - name: Up Air
@@ -197,6 +223,7 @@ MonoBehaviour:
     input: A8A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves:
     - Neutral Air
     - Forward Air
@@ -205,12 +232,14 @@ MonoBehaviour:
     - damage: 7
       hitstun: 0.25
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 10
       unscaledKnockback: 7.5
       angle: 120
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
   - name: Back Air
@@ -218,17 +247,20 @@ MonoBehaviour:
     input: A4A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 5
       hitstun: 0.25
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 15
       unscaledKnockback: 7.5
       angle: 150
       guaranteeLaunch: 0
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 0}
   - name: Down Air
@@ -236,17 +268,20 @@ MonoBehaviour:
     input: A2A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 6
       hitstun: 0.5
       hitstop: 0.25
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 25
       unscaledKnockback: 10
       angle: -75
       guaranteeLaunch: 1
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 0}
   - name: Neutral Special
@@ -254,6 +289,7 @@ MonoBehaviour:
     input: 5B
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes: []
   - name: Neutral Special Counter
@@ -261,17 +297,20 @@ MonoBehaviour:
     input: 
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 10
       hitstun: 1
       hitstop: 0.5
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 10
       unscaledKnockback: 15
       angle: 45
       guaranteeLaunch: 1
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 3
       hitEffect: {fileID: 0}
   - name: Forward Special
@@ -279,18 +318,21 @@ MonoBehaviour:
     input: 6B
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves:
     - Aerials
     hitboxes:
     - damage: 2
       hitstun: 0.1
       hitstop: 0.01
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 0
       unscaledKnockback: 15
       angle: 45
       guaranteeLaunch: 1
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
   - name: Up Special
@@ -298,17 +340,20 @@ MonoBehaviour:
     input: 8B
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 10
       hitstun: 1
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 7.5
       unscaledKnockback: 10
       angle: 75
       guaranteeLaunch: 1
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 1
       hitEffect: {fileID: 0}
   - name: Down Special
@@ -316,28 +361,33 @@ MonoBehaviour:
     input: 2B
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 7.5
       hitstun: 0.5
       hitstop: 0.1
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 7.5
       unscaledKnockback: 15
       angle: 0
       guaranteeLaunch: 1
       forwardDependentAngle: 1
+      directionIndependentAngle: 0
       type: 0
       hitEffect: {fileID: 0}
     - damage: 12.5
       hitstun: 1
       hitstop: 0.25
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 10
       unscaledKnockback: 15
       angle: 75
       guaranteeLaunch: 1
       forwardDependentAngle: 0
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 0}
   - name: Getup Special
@@ -345,6 +395,7 @@ MonoBehaviour:
     input: 
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes: []
   - name: Getup Special Launch
@@ -352,16 +403,60 @@ MonoBehaviour:
     input: 
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 20
       hitstun: 1
       hitstop: 0.5
+      attraction: 0
       attackerHitstopMultiplier: 1
       scaledKnockback: 25
       unscaledKnockback: 25
       angle: 0
       guaranteeLaunch: 1
       forwardDependentAngle: 1
+      directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 3269442930348277615, guid: d25cdc23de90ec0499c44bf3b505fff5, type: 3}
+  closeGroundOptions:
+  - Jab 1
+  - Forward Tilt
+  - Up Tilt
+  - Up Air
+  - Forward Special
+  - Up Special
+  mediumGroundOptions:
+  - Down Tilt
+  - Neutral Air
+  - Forward Air
+  - Neutral Special
+  longGroundOptions:
+  - Forward Special
+  farGroundOptions: []
+  closeAirOptions:
+  - Neutral Air
+  - Up Air
+  - Forward Special
+  mediumAirOptions:
+  - Forward Air
+  - Down Air
+  longAirOptions:
+  - Down Air
+  farAirOptions:
+  - Forward Special
+  antiAirOptions:
+  - Up Tilt
+  - Up Air
+  antiGroundOptions:
+  - Neutral Air
+  - Forward Air
+  - Down Air
+  followupOptions:
+  - Jab 2
+  - Forward Special
+  - Up Tilt
+  lowRecoveryOptions:
+  - Forward Special
+  - Up Special
+  highRecoveryOptions: []

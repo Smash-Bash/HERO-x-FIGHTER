@@ -15,6 +15,7 @@ public class Kusaka : Fighter
     public Material neutralFace;
     public Material overclockedFace;
     public GameObject overclockedAura;
+    public bool useGetupSpecial;
 
     // Start is called before the first frame update
     public override void Start()
@@ -98,9 +99,55 @@ public class Kusaka : Fighter
         }
     }
 
+    public override bool CustomAI(ComputerInput AI)
+    {
+        bool overrideBehaviour = false;
+
+        if (player.damage >= 50 && !overclocked && Vector3.Distance(transform.position, AI.target.transform.position) > 7.5f && AI.state != ComputerInput.ComputerState.Recovering)
+        {
+            AI.options.Add("Down Special");
+        }
+
+        if (player.hitstun > 0 && !player.landing)
+        {
+            useGetupSpecial = Random.Range(0, 2) == 0;
+        }
+
+        if (player.landing && useGetupSpecial && energy >= 0.25f && player.killer != null)
+        {
+            AI.leftStick = Vector2.zero;
+
+            overrideBehaviour = true;
+        }
+        if (player.tumbling && useGetupSpecial && AI.state != ComputerInput.ComputerState.Recovering)
+        {
+            AI.leftStick = Vector2.zero;
+
+            overrideBehaviour = true;
+        }
+        if (player.gettingUp && useGetupSpecial && energy >= 0.25f && player.killer != null)
+        {
+            AI.leftStick = Vector2.zero;
+
+            overrideBehaviour = true;
+
+            if (player.damage < 99)
+            {
+                player.damage = Mathf.MoveTowards(player.damage, 99, 20);
+            }
+            energy = Mathf.MoveTowards(energy, 0f, 0.25f);
+
+            SetAttack("Getup Special");
+
+            useGetupSpecial = false;
+        }
+
+        return overrideBehaviour;
+    }
+
     public void LateUpdate()
     {
-        if (kineticLeap && !player.model.animator.GetCurrentAnimatorStateInfo(0).IsName("Side Special"))
+        if (kineticLeap && !player.model.animator.GetCurrentAnimatorStateInfo(0).IsName("Forward Special"))
         {
             glowL.SetActive(true);
             glowR.SetActive(true);
@@ -120,11 +167,25 @@ public class Kusaka : Fighter
         }
     }
 
+    public override void OnDamageDealt(float damage)
+    {
+        base.OnDamageDealt(damage);
+
+        energy = Mathf.MoveTowards(energy, 1f, damage / 100);
+    }
+
+    public override void OnDamageRecieved(float damage)
+    {
+        base.OnDamageDealt(damage);
+
+        energy = Mathf.MoveTowards(energy, 1f, damage / 200);
+    }
+
     public override void OnHit(string moveName)
     {
         base.OnHit(moveName);
 
-        energy = Mathf.MoveTowards(energy, 1f, 0.05f);
+        //energy = Mathf.MoveTowards(energy, 1f, 0.05f);
 
         if (moveName == "Getup Special Launch")
         {
@@ -138,6 +199,10 @@ public class Kusaka : Fighter
     {
         base.OnSetAttack();
 
+        if (currentMove.name == "Forward Special")
+        {
+            energy = Mathf.MoveTowards(energy, 0, 0.25f);
+        }
         if (currentMove.name == "Up Special")
         {
             currentMove.hitboxes[0].damage *= 1 + energy;
@@ -161,7 +226,7 @@ public class Kusaka : Fighter
         {
             if (energy >= 0.25f)
             {
-                energy = Mathf.MoveTowards(energy, 0, 0.25f);
+                
             }
             else
             {

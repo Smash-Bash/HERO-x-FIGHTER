@@ -18,6 +18,7 @@ MonoBehaviour:
     input: G5A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves:
     - Jab 2
     - Forward Tilt
@@ -41,6 +42,7 @@ MonoBehaviour:
     input: G5A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves:
     - Forward Tilt
     - Up Tilt
@@ -64,6 +66,7 @@ MonoBehaviour:
     input: G6A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 6
@@ -84,6 +87,7 @@ MonoBehaviour:
     input: G8A
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 7
@@ -104,6 +108,7 @@ MonoBehaviour:
     input: G2A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves:
     - Down Tilt
     - Jab 1
@@ -127,6 +132,7 @@ MonoBehaviour:
     input: A5A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 2
@@ -147,6 +153,7 @@ MonoBehaviour:
     input: A6A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 5
@@ -167,6 +174,7 @@ MonoBehaviour:
     input: G4A
     grounded: 1
     airborne: 0
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 6
@@ -187,6 +195,7 @@ MonoBehaviour:
     input: A8A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves:
     - Neutral Air
     - Forward Air
@@ -210,6 +219,7 @@ MonoBehaviour:
     input: A4A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 8
@@ -230,6 +240,7 @@ MonoBehaviour:
     input: A2A
     grounded: 0
     airborne: 1
+    superArmour: 0
     nextMoves:
     - Aerials
     hitboxes:
@@ -251,6 +262,7 @@ MonoBehaviour:
     input: 5B
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves:
     - Neutral Special
     hitboxes:
@@ -272,6 +284,7 @@ MonoBehaviour:
     input: 6B
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves:
     - Aerials
     hitboxes:
@@ -293,6 +306,7 @@ MonoBehaviour:
     input: 8B
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 15
@@ -313,6 +327,7 @@ MonoBehaviour:
     input: 2B
     grounded: 1
     airborne: 1
+    superArmour: 0
     nextMoves: []
     hitboxes:
     - damage: 7.5
@@ -341,3 +356,41 @@ MonoBehaviour:
       directionIndependentAngle: 0
       type: 2
       hitEffect: {fileID: 3269442930348277615, guid: d25cdc23de90ec0499c44bf3b505fff5, type: 3}
+  closeGroundOptions:
+  - Jab 1
+  - Forward Tilt
+  - Up Air
+  mediumGroundOptions:
+  - Up Tilt
+  - Down Tilt
+  - Down Air
+  - Forward Special
+  - Down Special
+  longGroundOptions:
+  - Forward Special
+  farGroundOptions:
+  - Neutral Special
+  closeAirOptions:
+  - Forward Air
+  - Up Air
+  mediumAirOptions:
+  - Forward Air
+  - Neutral Air
+  - Down Air
+  longAirOptions:
+  - Forward Special
+  farAirOptions:
+  - Neutral Special
+  antiAirOptions:
+  - Up Tilt
+  - Up Air
+  antiGroundOptions:
+  - Down Air
+  - Down Special
+  followupOptions:
+  - Jab 2
+  lowRecoveryOptions:
+  - Up Special
+  highRecoveryOptions:
+  - Forward Special
+  - Up Special

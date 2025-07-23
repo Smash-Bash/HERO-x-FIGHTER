@@ -55,11 +55,16 @@ public class CameraScript : MonoBehaviour
         {
             if (!player.unconscious)
             {
-                position += player.transform.position;
+                Vector3 playerPosition = new Vector3(Mathf.Clamp(player.transform.position.x, multiplayer.blastZone.x * -1, multiplayer.blastZone.x), Mathf.Clamp(player.transform.position.y, multiplayer.blastZone.y * -1, multiplayer.blastZone.y), 0);
+                position += playerPosition;
                 foreach (PlayerScript otherPlayer in multiplayer.players)
                 {
-                    newSize = Mathf.Max(newSize, (Vector3.Distance(player.transform.position, otherPlayer.transform.position) / 2) + 2.5f - size);
-                    newSize = Mathf.Min(newSize, smallestSize / 2.25f);
+                    if (!otherPlayer.unconscious)
+                    {
+                        Vector3 otherPlayerPosition = new Vector3(Mathf.Clamp(otherPlayer.transform.position.x, multiplayer.blastZone.x * -1, multiplayer.blastZone.x), Mathf.Clamp(otherPlayer.transform.position.y, multiplayer.blastZone.y * -1, multiplayer.blastZone.y), 0);
+                        newSize = Mathf.Max(newSize, (Vector3.Distance(playerPosition, otherPlayerPosition) / 2) + 2.5f - size);
+                        newSize = Mathf.Min(newSize, smallestSize / 2.25f);
+                    }
                 }
             }
         }

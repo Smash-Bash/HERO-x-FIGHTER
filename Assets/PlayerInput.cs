@@ -9,6 +9,7 @@ public class PlayerInput : MonoBehaviour
     public float specialBuffer;
     public float jumpBuffer;
     public bool ignoreBuffers;
+    public bool hasStickJump;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -25,9 +26,19 @@ public class PlayerInput : MonoBehaviour
             specialBuffer -= Time.deltaTime;
             jumpBuffer -= Time.deltaTime;
         }
+
+        if (GetLeftStickY() < 0.25f)
+        {
+            hasStickJump = true;
+        }
     }
 
     public virtual bool GetStickFlick()
+    {
+        return false;
+    }
+
+    public virtual bool GetRightStickFlick()
     {
         return false;
     }
@@ -115,5 +126,18 @@ public class PlayerInput : MonoBehaviour
     public virtual bool GetStartDown()
     {
         return false;
+    }
+
+    public virtual bool GetStickJump()
+    {
+        if (GetLeftStickY() >= 0.25f && hasStickJump)
+        {
+            hasStickJump = false;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

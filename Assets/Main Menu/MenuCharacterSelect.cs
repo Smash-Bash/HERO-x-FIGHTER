@@ -9,10 +9,23 @@ public class MenuCharacterSelect : MenuScreen
     public CharacterButton[] characters;
     public CSSPuck[] pucks;
     public CSSPlayer[] cssPlayers;
+    public Color[] colors;
     public GameObject readyPrompt;
     public Image startFade;
     public TMP_Text stageName;
     public MenuStageSelect stageSelect;
+    public CharacterButton randomButton;
+
+    void OnEnable()
+    {
+        foreach (CSSPlayer player in cssPlayers)
+        {
+            if (player.computerPlayer)
+            {
+                player.selectedPuck = null;
+            }
+        }
+    }
 
     // Start is called before the first frame update
     public override void Start()
@@ -37,7 +50,7 @@ public class MenuCharacterSelect : MenuScreen
         }
         foreach (CSSPlayer player in cssPlayers)
         {
-            if (player.selectedPuck != null)
+            if (player.isActiveAndEnabled && player.selectedPuck != null)
             {
                 ready = false;
             }
@@ -49,7 +62,16 @@ public class MenuCharacterSelect : MenuScreen
 
         foreach (CSSPlayer player in cssPlayers)
         {
-            if (ready && player.input.GetStartDown())
+            if (player.input ? player.input.GetJumpDown() : false)
+            {
+                foreach (CSSPlayer playerTwo in cssPlayers)
+                {
+                    playerTwo.selectedPuck.transform.position = randomButton.transform.position;
+                    playerTwo.selectedPuck = null;
+                }
+            }
+
+            if (ready && (player.input ? player.input.GetStartDown() : false))
             {
                 StartMatch();
             }
@@ -62,14 +84,25 @@ public class MenuCharacterSelect : MenuScreen
         GameSystems.inputIDs.Clear();
         foreach (CSSPlayer player in cssPlayers)
         {
-            GameSystems.fighters.Add(player.puck.currentCharacterButton.fighter);
-            if (player.input is KeyboardInput)
+            if (player.puck.isActiveAndEnabled)
             {
-                GameSystems.inputIDs.Add(0);
-            }
-            else if (player.input is GamepadInput)
-            {
-                GameSystems.inputIDs.Add(player.input.GetComponent<GamepadInput>().gamepadID);
+                GameSystems.fighters.Add(player.puck.currentCharacterButton.fighter);
+                if (player.computerPlayer)
+                {
+                    GameSystems.inputIDs.Add(-1);
+                }
+                else if (player.input == null)
+                {
+                    GameSystems.inputIDs.Add(-1);
+                }
+                else if (player.input is KeyboardInput)
+                {
+                    GameSystems.inputIDs.Add(0);
+                }
+                else if (player.input is GamepadInput)
+                {
+                    GameSystems.inputIDs.Add(player.input.GetComponent<GamepadInput>().gamepadID);
+                }
             }
         }
         GameSystems.LoadScene(stageSelect.pucks[0].currentStageButton.stage);

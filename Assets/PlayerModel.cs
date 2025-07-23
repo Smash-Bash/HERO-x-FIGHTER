@@ -16,6 +16,8 @@ public class PlayerModel : MonoBehaviour
     public bool overrideXVelocity;
     public bool overrideYVelocity;
     public bool alignToVelocity;
+    public float gravity = 1;
+    public bool activeArmour;
     public bool invincible;
     public bool talking;
     public bool ledgeSnap;
