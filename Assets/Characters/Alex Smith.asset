@@ -102,7 +102,7 @@ MonoBehaviour:
       forwardDependentAngle: 0
       directionIndependentAngle: 0
       type: 1
-      hitEffect: {fileID: 0}
+      hitEffect: {fileID: 738131455022530534, guid: 59fe87abeb11e3048bbd525069057f2b, type: 3}
   - name: Down Tilt
     animationName: Down Tilt
     input: G2A
@@ -168,7 +168,7 @@ MonoBehaviour:
       forwardDependentAngle: 0
       directionIndependentAngle: 0
       type: 0
-      hitEffect: {fileID: 0}
+      hitEffect: {fileID: 738131455022530534, guid: 59fe87abeb11e3048bbd525069057f2b, type: 3}
   - name: Back Tilt
     animationName: Forward Tilt
     input: G4A
@@ -278,7 +278,7 @@ MonoBehaviour:
       forwardDependentAngle: 0
       directionIndependentAngle: 0
       type: 0
-      hitEffect: {fileID: 0}
+      hitEffect: {fileID: 738131455022530534, guid: 59fe87abeb11e3048bbd525069057f2b, type: 3}
   - name: Forward Special
     animationName: Forward Special
     input: 6B

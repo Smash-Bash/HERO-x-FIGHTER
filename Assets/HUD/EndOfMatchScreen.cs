@@ -7,6 +7,7 @@ public class EndOfMatchScreen : MonoBehaviour
 {
     public MultiplayerManager multiplayer;
     public DialogueBox dialogue;
+    public UniversalInput input;
 
     public Image rematchBar;
     public Image mainMenuBar;
@@ -49,6 +50,27 @@ public class EndOfMatchScreen : MonoBehaviour
                 mainMenuProgress = Mathf.MoveTowards(mainMenuProgress, 1, Time.deltaTime / 2);
             }
             player.input.enabled = false;
+        }
+        if (multiplayer.computerOnly)
+        {
+            if (input.GetAttack())
+            {
+                rematchMoved = true;
+                if (rematchProgress <= 0)
+                {
+                    rematchProgress = 0.01f;
+                }
+                rematchProgress = Mathf.MoveTowards(rematchProgress, 1, Time.deltaTime);
+            }
+            if (input.GetSpecial())
+            {
+                mainMenuMoved = true;
+                if (mainMenuProgress <= 0)
+                {
+                    mainMenuProgress = 0.01f;
+                }
+                mainMenuProgress = Mathf.MoveTowards(mainMenuProgress, 1, Time.deltaTime / 2);
+            }
         }
         if (!rematchMoved)
         {

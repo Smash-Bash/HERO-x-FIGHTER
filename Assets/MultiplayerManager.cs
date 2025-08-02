@@ -41,6 +41,7 @@ public class MultiplayerManager : MonoBehaviour
     public Sprite[] roundNumbers;
     public Fighter defaultFighter;
     public FighterCatalogue fighterCatalogue;
+    public bool computerOnly;
 
     public enum gamemodeType
     {
@@ -181,6 +182,15 @@ public class MultiplayerManager : MonoBehaviour
         else
         {
             Time.timeScale = timeScale;
+        }
+
+        computerOnly = true;
+        foreach (PlayerScript player in players)
+        {
+            if (!(player.input is ComputerInput))
+            {
+                computerOnly = false;
+            }
         }
 
         alivePlayers = 0;

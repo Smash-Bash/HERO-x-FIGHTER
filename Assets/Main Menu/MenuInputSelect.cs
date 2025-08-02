@@ -28,14 +28,20 @@ public class MenuInputSelect : MenuScreen
 
         MenuInputSlot finalComputerSlot = null;
 
+        bool onlyComputerPlayers = true;
+        int players = 0;
+
         foreach (MenuInputSlot slot in inputSlots)
         {
             if (slot.player.computerPlayer)
             {
                 finalComputerSlot = slot;
+                players++;
             }
             else if (slot.player.input != null)
             {
+                onlyComputerPlayers = false;
+                players++;
                 if (slot.player.input is KeyboardInput ? Input.GetMouseButtonDown(1) : false)
                 {
                     Destroy(slot.player.input);
@@ -74,15 +80,20 @@ public class MenuInputSelect : MenuScreen
         {
             if (slot.player.input != null)
             {
-                if (slot.player.input is GamepadInput ? Input.GetKeyDown("joystick " + slot.player.input.GetComponent<GamepadInput>().gamepadID + " button " + slot.player.input.GetComponent<GamepadInput>().startButton) : false)
+                if (slot.player.input is GamepadInput ? players > 1 && Input.GetKeyDown("joystick " + slot.player.input.GetComponent<GamepadInput>().gamepadID + " button " + slot.player.input.GetComponent<GamepadInput>().startButton) : false)
                 {
                     mainMenu.ChangeMenu("Stage Select Screen");
                 }
-                else if (slot.player.input is KeyboardInput ? Input.GetKeyDown(KeyCode.Return) : false)
+                else if (slot.player.input is KeyboardInput ? players > 1 && Input.GetKeyDown(KeyCode.Return) : false)
                 {
                     mainMenu.ChangeMenu("Stage Select Screen");
                 }
             }
+        }
+
+        if (onlyComputerPlayers ? players > 1 && mainMenu.input.GetStartDown() : false)
+        {
+            mainMenu.ChangeMenu("Stage Select Screen");
         }
     }
 

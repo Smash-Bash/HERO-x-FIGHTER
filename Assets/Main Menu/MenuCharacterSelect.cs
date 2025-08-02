@@ -9,6 +9,7 @@ public class MenuCharacterSelect : MenuScreen
     public CharacterButton[] characters;
     public CSSPuck[] pucks;
     public CSSPlayer[] cssPlayers;
+    public CSSPlayer globalPlayer;
     public Color[] colors;
     public GameObject readyPrompt;
     public Image startFade;
@@ -48,20 +49,37 @@ public class MenuCharacterSelect : MenuScreen
                 }
             }
         }
+        bool playerAvailable = false;
         foreach (CSSPlayer player in cssPlayers)
         {
+            if (player.isActiveAndEnabled)
+            {
+                playerAvailable = true;
+            }
             if (player.isActiveAndEnabled && player.selectedPuck != null)
             {
                 ready = false;
             }
         }
+        if (globalPlayer.isActiveAndEnabled && globalPlayer.selectedPuck != null)
+        {
+            ready = false;
+        }
+
+        globalPlayer.gameObject.SetActive(!playerAvailable);
 
         stageName.text = stageSelect.pucks[0].stageName.text;
         readyPrompt.gameObject.SetActive(ready);
         startFade.color = new Color(startFade.color.r, startFade.color.g, startFade.color.b, Mathf.Lerp(startFade.color.a, (ready ? 0.25f : 0f), Time.deltaTime * 10));
 
+        bool computerOnly = true;
         foreach (CSSPlayer player in cssPlayers)
         {
+            if (player.input != null)
+            {
+                computerOnly = false;
+            }
+
             if (player.input ? player.input.GetJumpDown() : false)
             {
                 foreach (CSSPlayer playerTwo in cssPlayers)
@@ -75,6 +93,11 @@ public class MenuCharacterSelect : MenuScreen
             {
                 StartMatch();
             }
+        }
+
+        if (ready && computerOnly && mainMenu.input.GetStartDown())
+        {
+            StartMatch();
         }
     }
 

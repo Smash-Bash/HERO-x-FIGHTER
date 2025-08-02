@@ -15,6 +15,7 @@ public class HeadsUpDisplay : MonoBehaviour
     public Image[] stockIcons;
     public TMP_Text stockDisplay;
     public Image[] coloredImages;
+    public float[] coloredImageBrightnesses;
     public TMP_Text comboDisplay;
     public TMP_Text traditionalName;
     public TMP_Text platformName;
@@ -106,9 +107,11 @@ public class HeadsUpDisplay : MonoBehaviour
             energyMeterParent.SetActive(false);
         }
 
+        int imageIndex = 0;
         foreach (Image currentImage in coloredImages)
         {
-            currentImage.color = new Color(player.GetColor().r, player.GetColor().g, player.GetColor().b, currentImage.color.a);
+            currentImage.color = new Color(player.GetColor().r * coloredImageBrightnesses[imageIndex], player.GetColor().g * coloredImageBrightnesses[imageIndex], player.GetColor().b * coloredImageBrightnesses[imageIndex], currentImage.color.a);
+            imageIndex++;
         }
 
         if (stockDisplay != null)

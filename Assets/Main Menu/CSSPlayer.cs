@@ -28,7 +28,7 @@ public class CSSPlayer : MonoBehaviour
         transform.position += new Vector3(velocity.x, velocity.y, 0) * Time.deltaTime * 500;
 
 
-        if (selectedPuck == null && input.GetSpecialDown())
+        if (selectedPuck == null && puck != null && input.GetSpecialDown())
         {
             selectedPuck = puck;
         }
@@ -76,16 +76,16 @@ public class CSSPlayer : MonoBehaviour
         CSSPuck closest = null;
         float distance = 2500;
         Vector3 position = transform.position;
-        foreach (CSSPuck puck in characterSelect.pucks)
+        foreach (CSSPuck currentPuck in characterSelect.pucks)
         {
-            if (Vector3.Distance(position, puck.transform.position) <= 2500 && puck.isActiveAndEnabled)
+            if (Vector3.Distance(position, currentPuck.transform.position) <= 2500 && currentPuck.isActiveAndEnabled)
             {
-                Vector3 diff = puck.transform.position - position;
+                Vector3 diff = currentPuck.transform.position - position;
                 //float curDistance = diff.sqrMagnitude;
                 float curDistance = diff.sqrMagnitude;
                 if (curDistance < distance)
                 {
-                    closest = puck;
+                    closest = currentPuck;
                     distance = curDistance;
                 }
             }

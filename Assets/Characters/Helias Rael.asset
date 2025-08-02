@@ -446,8 +446,7 @@ MonoBehaviour:
   - Forward Air
   - Up Air
   longAirOptions: []
-  farAirOptions:
-  - Up Special
+  farAirOptions: []
   antiAirOptions:
   - Up Tilt
   - Up Air
