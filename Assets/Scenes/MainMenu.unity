@@ -29412,9 +29412,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Kenney (2025) Input Prompts \xB7 Kenney. Available at: https://kenney.nl/assets/input-prompts
-    (Accessed: 2 August 2025).\r\n\r\nAll other work and assets are owned and created
-    by William Bashford. No Generative AI was used in the making of this game.\r"
+  m_text: "Pathmaker. (2024). PC, Web [Game]. Godalming: Smash_Bash\n\nKenney (2025)
+    Input Prompts \xB7 Kenney. Available at: https://kenney.nl/assets/input-prompts
+    (Accessed: 2 August 2025).\n\nAll other work and assets are owned and created
+    by William Bashford. No Generative AI was used in the making of this game."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -29441,8 +29442,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
