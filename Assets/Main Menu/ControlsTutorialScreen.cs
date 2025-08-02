@@ -17,11 +17,11 @@ public class ControlsTutorialScreen : MenuScreen
 
         if (mainMenu.input.GetAttackDown())
         {
-            mainMenu.ChangeMenu("Player Select Screen");
+            mainMenu.ChangeMenu(nextMenu.gameObject.name);
         }
         else if (mainMenu.input.GetSpecialDown())
         {
-            mainMenu.ChangeMenu("Main Menu Screen");
+            mainMenu.ChangeMenu(previousMenu.gameObject.name);
         }
     }
 }

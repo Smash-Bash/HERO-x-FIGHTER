@@ -20,7 +20,7 @@ public class MainMenuScreen : MenuScreen
 
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Logo") && (mainMenu.input.GetAttackDown() || mainMenu.input.GetSpecialDown() || mainMenu.input.GetJumpDown()))
         {
-            mainMenu.ChangeMenu("Controls Tutorial Screen");
+            mainMenu.ChangeMenu(nextMenu.gameObject.name);
         }
     }
 }
